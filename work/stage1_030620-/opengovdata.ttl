@@ -16,17 +16,14 @@
 
 ###  http://www.w3.org/2004/02/skos/core#altLabel
 skos:altLabel rdf:type owl:AnnotationProperty ;
-              rdfs:label "рассшифровка сокращения" .
-
-
-###  http://www.w3.org/2004/02/skos/core#boarderTransitive
-skos:boarderTransitive rdf:type owl:AnnotationProperty ;
-                       rdfs:label "код уровнем выше" .
+              rdfs:label "рассшифровка сокращения" ;
+              rdfs:subPropertyOf rdfs:label .
 
 
 ###  http://www.w3.org/2004/02/skos/core#definition
 skos:definition rdf:type owl:AnnotationProperty ;
-                rdfs:label "полный код" .
+                rdfs:label "полный код" ;
+                rdfs:subPropertyOf skos:note .
 
 
 ###  http://www.w3.org/2004/02/skos/core#hasTopConcept
@@ -35,41 +32,61 @@ skos:hasTopConcept rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#hiddenLabel
 skos:hiddenLabel rdf:type owl:AnnotationProperty ;
-                 rdfs:label "значимая часть кода" .
+                 rdfs:label "значимая часть кода" ;
+                 rdfs:subPropertyOf rdfs:label .
 
 
 ###  http://www.w3.org/2004/02/skos/core#inScheme
 skos:inScheme rdf:type owl:AnnotationProperty .
 
 
-###  http://www.w3.org/2004/02/skos/core#member
-skos:member rdf:type owl:AnnotationProperty ;
-            rdfs:label "входит в классификатор" .
-
-
-###  http://www.w3.org/2004/02/skos/core#narrowerTransitive
-skos:narrowerTransitive rdf:type owl:AnnotationProperty ;
-                        rdfs:label "код уровнем ниже" .
-
-
-###  http://www.w3.org/2004/02/skos/core#notation
-skos:notation rdf:type owl:AnnotationProperty ;
-              rdfs:label "значимый уровень (1-4)" .
-
-
 ###  http://www.w3.org/2004/02/skos/core#note
-skos:note rdf:type owl:AnnotationProperty ;
-          rdfs:comment "Обозначает столицу (если есть)" ;
-          rdfs:label "столица" .
+skos:note rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#prefLabel
 skos:prefLabel rdf:type owl:AnnotationProperty ;
-               rdfs:label "официальное название" .
+               rdfs:label "официальное название" ;
+               rdfs:subPropertyOf rdfs:label .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty ;
+                 rdfs:label "столица" ;
+                rdfs:subPropertyOf skos:note .
 
 
 ###  http://www.w3.org/2004/02/skos/core#topConceptOf
 skos:topConceptOf rdf:type owl:AnnotationProperty .
+
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#boarderTransitive
+skos:boarderTransitive rdf:type owl:ObjectProperty ;
+                       rdfs:label "код уровнем выше" .
+
+
+###  http://www.w3.org/2004/02/skos/core#member
+skos:member rdf:type owl:ObjectProperty ;
+            rdfs:label "входит в классификатор" .
+
+
+###  http://www.w3.org/2004/02/skos/core#narrowerTransitive
+skos:narrowerTransitive rdf:type owl:ObjectProperty ;
+                        rdfs:label "код уровнем ниже" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#notation
+skos:notation rdf:type owl:DatatypeProperty ;
+              rdfs:label "значимый уровень (1-4)" .
 
 
 #################################################################
@@ -185,6 +202,42 @@ OGD:VillageCouncil rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.w3id.org/AutonomousOkrugDistrict
+<http://www.w3id.org/AutonomousOkrugDistrict> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/AutonomousOkrugMunicipality
+<http://www.w3id.org/AutonomousOkrugMunicipality> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/DistrictCity
+<http://www.w3id.org/DistrictCity> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/InterSettlementTerritory
+<http://www.w3id.org/InterSettlementTerritory> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/IntracityAreas
+<http://www.w3id.org/IntracityAreas> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/IntracityDistrict
+<http://www.w3id.org/IntracityDistrict> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/IntracityMunicipality
+<http://www.w3id.org/IntracityMunicipality> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/MunicipalDistrict
+<http://www.w3id.org/MunicipalDistrict> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/MunicipalOkrug
+<http://www.w3id.org/MunicipalOkrug> rdf:type owl:NamedIndividual .
+
+
 ###  http://www.w3id.org/OKATOCollection
 <http://www.w3id.org/OKATOCollection> rdf:type owl:NamedIndividual ,
                                                skos:Collection ;
@@ -211,54 +264,122 @@ OGD:VillageCouncil rdf:type owl:Class ;
                                                   <http://www.w3id.org/UrbanSettlements> .
 
 
+###  http://www.w3id.org/RegionCity
+<http://www.w3id.org/RegionCity> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/RegionDistrict
+<http://www.w3id.org/RegionDistrict> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/RuralSettlements
+<http://www.w3id.org/RuralSettlements> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/UrbanDistrict
+<http://www.w3id.org/UrbanDistrict> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/UrbanSettlements
+<http://www.w3id.org/UrbanSettlements> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/Village
+<http://www.w3id.org/Village> rdf:type owl:NamedIndividual .
+
+
+###  http://www.w3id.org/VillageCouncil
+<http://www.w3id.org/VillageCouncil> rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/opengovdataOKATO_01000000000
 :OKATO_01000000000 rdf:type owl:NamedIndividual ,
-                            OGD:OKATO ,
                             OGD:Region ;
-                   skos:definition "01000000000" ;
-                   skos:hiddenLabel "01" ;
                    skos:narrowerTransitive :OKATO_01201000000 ;
                    skos:notation "1" ;
-                   skos:note "г Барнаул" ;
-                   skos:prefLabel "Алтайский край" .
+                   skos:definition "01000000000" ;
+                   skos:hiddenLabel "01" ;
+                   skos:prefLabel "Алтайский край" ;
+                   skos:scopeNote "г Барнаул" .
 
 
 ###  https://w3id.org/opengovdataOKATO_01201000000
 :OKATO_01201000000 rdf:type owl:NamedIndividual ,
-                            OGD:OKATO ,
                             OGD:RegionDistrict ;
                    skos:boarderTransitive :OKATO_01000000000 ;
-                   skos:definition "01201000000" ;
-                   skos:hiddenLabel "201" ;
                    skos:narrowerTransitive :OKATO_01201802000 ;
                    skos:notation "2" ;
-                   skos:note "г Алейск" ;
-                   skos:prefLabel "Алейский район" .
+                   skos:definition "01201000000" ;
+                   skos:hiddenLabel "201" ;
+                   skos:prefLabel "Алейский район" ;
+                   skos:scopeNote "г Алейск" .
 
 
 ###  https://w3id.org/opengovdataOKATO_01201802000
 :OKATO_01201802000 rdf:type owl:NamedIndividual ,
-                            OGD:OKATO ,
                             OGD:VillageCouncil ;
                    skos:boarderTransitive :OKATO_01201000000 ;
-                   skos:definition "01201802000" ;
-                   skos:hiddenLabel "802" ;
                    skos:narrowerTransitive :OKATO_01201802001 ;
                    skos:notation "3" ;
-                   skos:note "п Алейский" ;
-                   skos:prefLabel "Алейский" .
+                   skos:definition "01201802000" ;
+                   skos:hiddenLabel "802" ;
+                   skos:prefLabel "Алейский" ;
+                   skos:scopeNote "п Алейский" .
 
 
 ###  https://w3id.org/opengovdataOKATO_01201802001
 :OKATO_01201802001 rdf:type owl:NamedIndividual ,
-                            skos:Concept ,
                             OGD:OKATO ;
-                   skos:altLabel "посёлок" ;
                    skos:boarderTransitive :OKATO_01201802000 ;
+                   skos:notation "4" ;
+                   skos:altLabel "посёлок" ;
                    skos:definition "01201802001" ;
                    skos:hiddenLabel "001" ;
-                   skos:notation "4" ;
                    skos:prefLabel "п Алейский" .
 
+
+###  https://w3id.org/opengovdataOKTMO_01000000000
+:OKTMO_01000000000 rdf:type owl:NamedIndividual ,
+                            OGD:Region ;
+                   skos:narrowerTransitive :OKTMO_01601000000 ;
+                   skos:notation "1" ;
+                   skos:definition "01000000000" ;
+                   skos:hiddenLabel "01" ;
+                   skos:prefLabel "Муниципальные образования Алтайского края" .
+
+
+###  https://w3id.org/opengovdataOKTMO_01601000000
+:OKTMO_01601000000 rdf:type owl:NamedIndividual ,
+                            OGD:MunicipalDistrict ;
+                   skos:boarderTransitive :OKTMO_01000000000 ;
+                   skos:narrowerTransitive :OKTMO_01601402000 ;
+                   skos:notation "2" ;
+                   skos:definition "01601000000" ;
+                   skos:hiddenLabel "601" ;
+                   skos:prefLabel "Алейский муниципальный район" ;
+                   skos:scopeNote "г Алейск" .
+
+
+###  https://w3id.org/opengovdataOKTMO_01601402000
+:OKTMO_01601402000 rdf:type owl:NamedIndividual ,
+                            OGD:RuralSettlements ;
+                   skos:boarderTransitive :OKTMO_01601000000 ;
+                   skos:narrowerTransitive :OKTMO_01601402101 ;
+                   skos:notation "3" ;
+                   skos:definition "01601402000" ;
+                   skos:hiddenLabel "402" ;
+                   skos:prefLabel "Алейский сельсовет" ;
+                   skos:scopeNote "п Алейский" .
+
+
+###  https://w3id.org/opengovdataOKTMO_01601402101
+:OKTMO_01601402101 rdf:type owl:NamedIndividual ,
+                            OGD:OKTMO ;
+                   skos:boarderTransitive :OKTMO_01601402000 ;
+                   skos:notation "4" ;
+                   skos:altLabel "посёлок" ;
+                   skos:definition "01601402101" ;
+                   skos:hiddenLabel "101" ;
+                   skos:prefLabel "п Алейский" .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
