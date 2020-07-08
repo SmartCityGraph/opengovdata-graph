@@ -6,10 +6,16 @@
 hasNestedObject и includedIn Ц object property используютс€ дл€ построени€ иерархии среди индивидов ("имеет внутренний муниципалитет" и "входит в" соответственно).
 Skos:definition Ц определение
 Skos:prefLabel Ц официальное название
-skos:scopeNote Ц столица, если есть
+skos:editorialNote - дополнительна€ информаци€
 hasAbbr - рассшифровка аббревиатуры
-hasDate - дата введени€
+hasDate - дата
+	hasDateOfIntroduction - дата введени€
+	hasDateOfAccept - дата прин€ти€
 hasCode - код
 	hasFullCode - полный код
 	hasValueCode - значима€ часть
-
+hasChange
+	hasChangeType - тип изменени€
+	hasChangeNumber - номер изменени€
+hasDescription - описание
+hasCapital Ц столица, если есть
