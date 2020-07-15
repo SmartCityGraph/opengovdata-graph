@@ -64,7 +64,7 @@ OGD:hasCapital rdf:type owl:ObjectProperty ;
 
 ###  http://www.w3id.org/opengovdata#includedInAsSubjectOfRF
 OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
-                            rdfs:domain OGD:AutonomousOkrugMunicipality ;
+                            rdfs:domain OGD:AutonomousOkrug ;
                             rdfs:range OGD:Region ;
                             rdfs:label "входит как самостоятельный субъект РФ в" .
 
@@ -73,42 +73,27 @@ OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://www.w3id.org/opengovdata#hasChange
-OGD:hasChange rdf:type owl:DatatypeProperty ;
-              rdfs:label "изменение" .
-
-
 ###  http://www.w3id.org/opengovdata#hasChangeNumber
 OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf OGD:hasChange ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
                     rdfs:label "номер изменения" .
 
 
 ###  http://www.w3id.org/opengovdata#hasChangeType
 OGD:hasChangeType rdf:type owl:DatatypeProperty ;
-                  rdfs:subPropertyOf OGD:hasChange ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
                   rdfs:label "тип изменения" .
-
-
-###  http://www.w3id.org/opengovdata#hasCode
-OGD:hasCode rdf:type owl:DatatypeProperty ;
-            rdfs:label "код" .
-
-
-###  http://www.w3id.org/opengovdata#hasDate
-OGD:hasDate rdf:type owl:DatatypeProperty ;
-            rdfs:label "дата" .
 
 
 ###  http://www.w3id.org/opengovdata#hasDateOfAccept
 OGD:hasDateOfAccept rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf OGD:hasDate ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
                     rdfs:label "дата принятия" .
 
 
 ###  http://www.w3id.org/opengovdata#hasDateOfIntroduction
 OGD:hasDateOfIntroduction rdf:type owl:DatatypeProperty ;
-                          rdfs:subPropertyOf OGD:hasDate ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
                           rdfs:label "дата введения" .
 
 
@@ -119,18 +104,18 @@ OGD:hasDescription rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasFullCode
 OGD:hasFullCode rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf OGD:hasCode ;
+                rdfs:subPropertyOf owl:topDataProperty ;
                 rdfs:label "полный код" .
 
 
-###  http://www.w3id.org/opengovdata#hasName
-OGD:hasName rdf:type owl:DatatypeProperty ;
-            rdfs:label "название" .
+###  http://www.w3id.org/opengovdata#hasNumber
+OGD:hasNumber rdf:type owl:DatatypeProperty ;
+              rdfs:label "номер федерального округа" .
 
 
 ###  http://www.w3id.org/opengovdata#hasValueCode
 OGD:hasValueCode rdf:type owl:DatatypeProperty ;
-                 rdfs:subPropertyOf OGD:hasCode ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
                  rdfs:label "значимая часть кода" .
 
 
@@ -156,37 +141,37 @@ OGD:AutonomousOblast rdf:type owl:Class ;
                      rdfs:label "Автономная область" .
 
 
-###  http://www.w3id.org/opengovdata#AutonomousOkrugMunicipality
-OGD:AutonomousOkrugMunicipality rdf:type owl:Class ;
-                                rdfs:subClassOf OGD:Region ,
-                                                [ rdf:type owl:Restriction ;
-                                                  owl:onProperty OGD:includedInAsSubjectOfRF ;
-                                                  owl:allValuesFrom OGD:Region
-                                                ] ;
-                                rdfs:label "Автономный округ" .
+###  http://www.w3id.org/opengovdata#AutonomousOkrug
+OGD:AutonomousOkrug rdf:type owl:Class ;
+                    rdfs:subClassOf OGD:Region ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty OGD:includedInAsSubjectOfRF ;
+                                      owl:allValuesFrom OGD:Region
+                                    ] ;
+                    rdfs:label "Автономный округ" .
 
 
 ###  http://www.w3id.org/opengovdata#City
 OGD:City rdf:type owl:Class ;
-         rdfs:subClassOf OGD:FourthLevelMunicipality ;
+         rdfs:subClassOf OGD:Locality ;
          rdfs:label "Город" .
 
 
 ###  http://www.w3id.org/opengovdata#CityVillage
 OGD:CityVillage rdf:type owl:Class ;
-                rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                rdfs:subClassOf OGD:Locality ;
                 rdfs:label "Городской посёлок" .
 
 
 ###  http://www.w3id.org/opengovdata#CountryVillage
 OGD:CountryVillage rdf:type owl:Class ;
-                   rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                   rdfs:subClassOf OGD:Locality ;
                    rdfs:label "Дачный посёлок" .
 
 
 ###  http://www.w3id.org/opengovdata#Derevnya
 OGD:Derevnya rdf:type owl:Class ;
-             rdfs:subClassOf OGD:FourthLevelMunicipality ;
+             rdfs:subClassOf OGD:Locality ;
              rdfs:label "Деревня" .
 
 
@@ -198,33 +183,13 @@ OGD:FederalCity rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#FederalOkrug
 OGD:FederalOkrug rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:OKTMOThesaurus ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty OGD:hasDescription ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ;
+                 rdfs:subClassOf OGD:OKTMOThesaurus ;
                  rdfs:label "Федеральный округ" .
-
-
-###  http://www.w3id.org/opengovdata#FourthLevelMunicipality
-OGD:FourthLevelMunicipality rdf:type owl:Class ;
-                            rdfs:subClassOf OGD:OKTMOThesaurus ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty OGD:belongsTo ;
-                                              owl:allValuesFrom OGD:Municipality
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty OGD:belongsTo ;
-                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                              owl:onClass OGD:Municipality
-                                            ] ;
-                            rdfs:label "Населённый пункт" .
 
 
 ###  http://www.w3id.org/opengovdata#Hootor
 OGD:Hootor rdf:type owl:Class ;
-           rdfs:subClassOf OGD:FourthLevelMunicipality ;
+           rdfs:subClassOf OGD:Locality ;
            rdfs:label "Хутор" .
 
 
@@ -253,7 +218,7 @@ OGD:IntracityMunicipality rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#Kishlack
 OGD:Kishlack rdf:type owl:Class ;
-             rdfs:subClassOf OGD:FourthLevelMunicipality ;
+             rdfs:subClassOf OGD:Locality ;
              rdfs:label "Кишлак" .
 
 
@@ -265,13 +230,28 @@ OGD:Kray rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#LivingPoint
 OGD:LivingPoint rdf:type owl:Class ;
-                rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                rdfs:subClassOf OGD:Locality ;
                 rdfs:label "Населённый пункт" .
+
+
+###  http://www.w3id.org/opengovdata#Locality
+OGD:Locality rdf:type owl:Class ;
+             rdfs:subClassOf OGD:OKTMOThesaurus ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty OGD:belongsTo ;
+                               owl:allValuesFrom OGD:Municipality
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty OGD:belongsTo ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass OGD:Municipality
+                             ] ;
+             rdfs:label "Населённый пункт" .
 
 
 ###  http://www.w3id.org/opengovdata#Mestechko
 OGD:Mestechko rdf:type owl:Class ;
-              rdfs:subClassOf OGD:FourthLevelMunicipality ;
+              rdfs:subClassOf OGD:Locality ;
               rdfs:label "Местечко" .
 
 
@@ -296,12 +276,12 @@ OGD:Municipality rdf:type owl:Class ;
                  rdfs:subClassOf OGD:OKTMOThesaurus ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty OGD:hasCapital ;
-                                   owl:allValuesFrom OGD:FourthLevelMunicipality
+                                   owl:allValuesFrom OGD:Locality
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty OGD:hasCapital ;
                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass OGD:FourthLevelMunicipality
+                                   owl:onClass OGD:Locality
                                  ] ;
                  rdfs:label "Муниципальное образование" .
 
@@ -332,7 +312,8 @@ OGD:OKTMO rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#OKTMOThesaurus
 OGD:OKTMOThesaurus rdf:type owl:Class ;
-                   rdfs:subClassOf skos:Concept .
+                   rdfs:subClassOf skos:Concept ;
+                   rdfs:label "Словарь ОКТМО" .
 
 
 ###  http://www.w3id.org/opengovdata#Oblast
@@ -358,91 +339,91 @@ OGD:Okrug rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#PGT
 OGD:PGT rdf:type owl:Class ;
-        rdfs:subClassOf OGD:FourthLevelMunicipality ;
+        rdfs:subClassOf OGD:Locality ;
         rdfs:label "Посёлок городского типа" .
 
 
 ###  http://www.w3id.org/opengovdata#Posjelok
 OGD:Posjelok rdf:type owl:Class ;
-             rdfs:subClassOf OGD:FourthLevelMunicipality ;
+             rdfs:subClassOf OGD:Locality ;
              rdfs:label "Посёлок" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayBarracks
 OGD:RailwayBarracks rdf:type owl:Class ;
-                    rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                    rdfs:subClassOf OGD:Locality ;
                     rdfs:label "Железнодорожная казарма" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayBooth
 OGD:RailwayBooth rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                 rdfs:subClassOf OGD:Locality ;
                  rdfs:label "Железнодорожная будка" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayCombinat
 OGD:RailwayCombinat rdf:type owl:Class ;
-                    rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                    rdfs:subClassOf OGD:Locality ;
                     rdfs:label "Железнодорожный комбинат" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayLine
 OGD:RailwayLine rdf:type owl:Class ;
-                rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                rdfs:subClassOf OGD:Locality ;
                 rdfs:label "Железнодорожная ветка" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayPathPost
 OGD:RailwayPathPost rdf:type owl:Class ;
-                    rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                    rdfs:subClassOf OGD:Locality ;
                     rdfs:label "Железнодорожный путевой пост" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayPlace
 OGD:RailwayPlace rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                 rdfs:subClassOf OGD:Locality ;
                  rdfs:label "Железнодорожная площадка" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayPlatform
 OGD:RailwayPlatform rdf:type owl:Class ;
-                    rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                    rdfs:subClassOf OGD:Locality ;
                     rdfs:label "Железнодорожная платформа" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayRazjezd
 OGD:RailwayRazjezd rdf:type owl:Class ;
-                   rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                   rdfs:subClassOf OGD:Locality ;
                    rdfs:label "Железнодорожный разъезд" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayRoadblock
 OGD:RailwayRoadblock rdf:type owl:Class ;
-                     rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                     rdfs:subClassOf OGD:Locality ;
                      rdfs:label "Железнодорожный блокпост" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayStation
 OGD:RailwayStation rdf:type owl:Class ;
-                   rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                   rdfs:subClassOf OGD:Locality ;
                    rdfs:label "Железнодорожная станция" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayStationVillage
 OGD:RailwayStationVillage rdf:type owl:Class ;
-                          rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                          rdfs:subClassOf OGD:Locality ;
                           rdfs:label "Посёлок при железнодорожной станции" .
 
 
 ###  http://www.w3id.org/opengovdata#RailwayStopPost
 OGD:RailwayStopPost rdf:type owl:Class ;
-                    rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                    rdfs:subClassOf OGD:Locality ;
                     rdfs:label "Железнодорожный остановочный пост" .
 
 
 ###  http://www.w3id.org/opengovdata#Razjezd
 OGD:Razjezd rdf:type owl:Class ;
-            rdfs:subClassOf OGD:FourthLevelMunicipality ;
+            rdfs:subClassOf OGD:Locality ;
             rdfs:label "Разъезд" .
 
 
@@ -492,7 +473,7 @@ OGD:Republic rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#ResortingVillage
 OGD:ResortingVillage rdf:type owl:Class ;
-                     rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                     rdfs:subClassOf OGD:Locality ;
                      rdfs:label "Курортный посёлок" .
 
 
@@ -506,37 +487,37 @@ OGD:RuralSettlements rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#Selo
 OGD:Selo rdf:type owl:Class ;
-         rdfs:subClassOf OGD:FourthLevelMunicipality ;
+         rdfs:subClassOf OGD:Locality ;
          rdfs:label "Село" .
 
 
 ###  http://www.w3id.org/opengovdata#Sloboda
 OGD:Sloboda rdf:type owl:Class ;
-            rdfs:subClassOf OGD:FourthLevelMunicipality ;
+            rdfs:subClassOf OGD:Locality ;
             rdfs:label "Слобода" .
 
 
 ###  http://www.w3id.org/opengovdata#Stanizca
 OGD:Stanizca rdf:type owl:Class ;
-             rdfs:subClassOf OGD:FourthLevelMunicipality ;
+             rdfs:subClassOf OGD:Locality ;
              rdfs:label "Станица" .
 
 
 ###  http://www.w3id.org/opengovdata#Station
 OGD:Station rdf:type owl:Class ;
-            rdfs:subClassOf OGD:FourthLevelMunicipality ;
+            rdfs:subClassOf OGD:Locality ;
             rdfs:label "Станция" .
 
 
 ###  http://www.w3id.org/opengovdata#StationVillage
 OGD:StationVillage rdf:type owl:Class ;
-                   rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                   rdfs:subClassOf OGD:Locality ;
                    rdfs:label "Посёлок при станции" .
 
 
 ###  http://www.w3id.org/opengovdata#Uloos
 OGD:Uloos rdf:type owl:Class ;
-          rdfs:subClassOf OGD:FourthLevelMunicipality ;
+          rdfs:subClassOf OGD:Locality ;
           rdfs:label "Улус" .
 
 
@@ -559,13 +540,13 @@ OGD:UrbanSettlements rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#WorkingVillage
 OGD:WorkingVillage rdf:type owl:Class ;
-                   rdfs:subClassOf OGD:FourthLevelMunicipality ;
+                   rdfs:subClassOf OGD:Locality ;
                    rdfs:label "Рабочий посёлок" .
 
 
 ###  http://www.w3id.org/opengovdata#Zimovje
 OGD:Zimovje rdf:type owl:Class ;
-            rdfs:subClassOf OGD:FourthLevelMunicipality ;
+            rdfs:subClassOf OGD:Locality ;
             rdfs:label "Зимовье" .
 
 
@@ -576,7 +557,7 @@ OGD:Zimovje rdf:type owl:Class ;
 ###  http://www.w3id.org/opengovdata#Syberia
 OGD:Syberia rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
-            OGD:hasName "Сибирский федеральный округ" ;
+            OGD:hasNumber 7 ;
             rdfs:label "Сибирский федеральный округ" .
 
 
@@ -662,7 +643,7 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( OGD:AutonomousOblast
-                OGD:AutonomousOkrugMunicipality
+                OGD:AutonomousOkrug
                 OGD:FederalCity
                 OGD:Kray
                 OGD:Oblast
@@ -673,7 +654,7 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( OGD:FederalOkrug
-                OGD:FourthLevelMunicipality
+                OGD:Locality
                 OGD:Municipality
                 OGD:Okrug
                 OGD:Region
