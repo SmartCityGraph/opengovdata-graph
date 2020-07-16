@@ -484,7 +484,8 @@ OGD:Region rdf:type owl:Class ;
                                                ]
                            ] ;
            rdfs:comment "Общее название субъекта РФ." ;
-           rdfs:label "Регион" .
+           rdfs:label "Регион" ,
+                      "Субъект Российской Федерации" .
 
 
 ###  http://www.w3id.org/opengovdata#RegionalMunicipality
