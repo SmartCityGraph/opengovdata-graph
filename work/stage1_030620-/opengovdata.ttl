@@ -11,67 +11,65 @@
 <http://www.w3id.org/opengovdata> rdf:type owl:Ontology .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3.org/2004/02/skos/core#definition
-skos:definition rdf:type owl:AnnotationProperty ;
-                rdfs:label "определение" ;
-                rdfs:subPropertyOf skos:note .
-
-
-###  http://www.w3.org/2004/02/skos/core#hasTopConcept
-skos:hasTopConcept rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#inScheme
-skos:inScheme rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#note
-skos:note rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty ;
-               rdfs:label "официальное название" ;
-               rdfs:subPropertyOf rdfs:label .
-
-
-###  http://www.w3.org/2004/02/skos/core#topConceptOf
-skos:topConceptOf rdf:type owl:AnnotationProperty .
-
-
-#################################################################
 #    Object Properties
 #################################################################
 
 ###  http://www.w3id.org/opengovdata#belongsTo
 OGD:belongsTo rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
               owl:inverseOf OGD:consistOf ;
+              rdf:type owl:TransitiveProperty ;
               rdfs:comment "Отражает территориальное вхождение одного объекта в другой." ;
               rdfs:label "входит в" .
 
 
 ###  http://www.w3id.org/opengovdata#consistOf
 OGD:consistOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
+              rdf:type owl:TransitiveProperty ;
               rdfs:comment "Обратное свойств к \"входит в\"" ;
               rdfs:label "имеет внутренний объект" .
 
 
+###  http://www.w3id.org/opengovdata#consistOfSubject
+OGD:consistOfSubject rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf OGD:consistOf ;
+                     owl:inverseOf OGD:includedInAsSubjectOfRF ;
+                     rdfs:comment "Обратное свойство к \"входит как самостоятельный субъект РФ в\"." ;
+                     rdfs:label "имеет внутренний субъект РФ" .
+
+
 ###  http://www.w3id.org/opengovdata#hasCapital
 OGD:hasCapital rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
+               owl:inverseOf OGD:isCapitalOf ;
                rdfs:domain OGD:Municipality ;
+               rdfs:range OGD:Locality ;
                rdfs:comment "Отражает административный центр муниципального образования, если таковой имеется." ;
                rdfs:label "имеет административный центр" .
 
 
 ###  http://www.w3id.org/opengovdata#includedInAsSubjectOfRF
 OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf OGD:belongsTo ;
                             rdfs:domain OGD:AutonomousOkrug ;
                             rdfs:range OGD:Region ;
                             rdfs:comment "Вхождение автономного округа в территориальный состав другого при сохранении полной автономии от него." ;
                             rdfs:label "входит как самостоятельный субъект РФ в" .
+
+
+###  http://www.w3id.org/opengovdata#isCapitalOf
+OGD:isCapitalOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
+                rdfs:domain OGD:Locality ;
+                rdfs:range OGD:Municipality ;
+                rdfs:comment "Обратное свойство к \"имеет административный центр\"." ;
+                rdfs:label "является административным центром" .
+
+
+###  http://www.w3id.org/opengovdata#topObjOKTMOProperty
+OGD:topObjOKTMOProperty rdf:type owl:ObjectProperty ;
+                        rdfs:label "имеет объектное отношение ОКТМО" .
 
 
 #################################################################
@@ -80,6 +78,7 @@ OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasChangeNumber
 OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                     rdfs:domain OGD:OKTMO ;
                     rdfs:comment "Номер последнего изменения, внесённого в базу ОКТМО, при котором был изменён данный код." ;
                     rdfs:label "номер изменения" .
@@ -87,6 +86,7 @@ OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasChangeType
 OGD:hasChangeType rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                   rdfs:domain OGD:OKTMO ;
                   rdfs:comment "Тип последнего изменения, внесённого в базу ОКТМО, при котором был изменён данный код." ;
                   rdfs:label "тип изменения" .
@@ -94,6 +94,7 @@ OGD:hasChangeType rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasDateOfAccept
 OGD:hasDateOfAccept rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                     rdfs:domain OGD:OKTMO ;
                     rdfs:comment "Дата принятия кода ОКТМО." ;
                     rdfs:label "дата принятия" .
@@ -101,6 +102,7 @@ OGD:hasDateOfAccept rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasDateOfIntroduction
 OGD:hasDateOfIntroduction rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                           rdfs:domain OGD:OKTMO ;
                           rdfs:comment "Дата введения кода ОКТМО" ;
                           rdfs:label "дата введения" .
@@ -108,6 +110,7 @@ OGD:hasDateOfIntroduction rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasDescription
 OGD:hasDescription rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                    rdfs:domain OGD:OKTMO ;
                    rdfs:comment "Дополнительная инфомрация из базы ОКТМО, относящаяся к данному коду." ;
                    rdfs:label "описание" .
@@ -115,6 +118,7 @@ OGD:hasDescription rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasFullCode
 OGD:hasFullCode rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                 rdfs:domain OGD:OKTMO ;
                 rdfs:comment "Полный код ОКТМО (8 знаков для регионов, округов и муниципальных образований и 11 для населённых пунктов)." ;
                 rdfs:label "полный код" .
@@ -122,36 +126,32 @@ OGD:hasFullCode rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3id.org/opengovdata#hasNumber
 OGD:hasNumber rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain OGD:FederalOkrug ;
               rdfs:label "номер федерального округа" .
 
 
 ###  http://www.w3id.org/opengovdata#hasValueCode
 OGD:hasValueCode rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                  rdfs:domain OGD:OKTMO ;
                  rdfs:comment "Часть кода (первая, вторая или третья для регионов, округов и муниципальных образований, и четвёртая для населённых пунктов), уникальная для объектов непосредственно входящих в один родительский объект." ;
                  rdfs:label "значимая часть кода" .
+
+
+###  http://www.w3id.org/opengovdata#topDataOKTMOProperty
+OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
+                         rdfs:domain OGD:OKTMO ;
+                         rdfs:label "имеет литеральное отношение ОКТМО" .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
-
-
 ###  http://www.w3id.org/opengovdata#AutonomousOblast
 OGD:AutonomousOblast rdf:type owl:Class ;
-                     rdfs:subClassOf OGD:Region ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty OGD:belongsTo ;
-                                       owl:someValuesFrom OGD:FederalOkrug
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty OGD:belongsTo ;
-                                       owl:allValuesFrom OGD:FederalOkrug
-                                     ] ;
+                     rdfs:subClassOf OGD:Region ;
                      rdfs:label "Автономная область" .
 
 
@@ -197,7 +197,6 @@ OGD:FederalCity rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#FederalOkrug
 OGD:FederalOkrug rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:OKTMOThesaurus ;
                  rdfs:comment "Единица административно-территориального деления, созданная в соответствии с Указом Президента России В. В. Путина № 849 «О полномочном представителе Президента Российской Федерации в федеральном округе» от 13 мая 2000 года." ;
                  rdfs:label "Федеральный округ" .
 
@@ -210,15 +209,20 @@ OGD:Hootor rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#InterSettlementTerritory
 OGD:InterSettlementTerritory rdf:type owl:Class ;
-                             rdfs:subClassOf OGD:OKTMOThesaurus ,
+                             rdfs:subClassOf OGD:OKTMO ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty OGD:belongsTo ;
-                                               owl:allValuesFrom OGD:MunicipalDistrict
+                                               owl:someValuesFrom OGD:MunicipalDistrict
                                              ] ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty OGD:belongsTo ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass OGD:MunicipalDistrict
+                                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( OGD:FederalOkrug
+                                                                                 OGD:MunicipalDistrict
+                                                                                 OGD:Okrug
+                                                                                 OGD:Region
+                                                                               )
+                                                                 ]
                                              ] ;
                              rdfs:comment "Территория муниципального района, находящаяся вне границ поселений." ;
                              rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
@@ -228,17 +232,17 @@ OGD:InterSettlementTerritory rdf:type owl:Class ;
 ###  http://www.w3id.org/opengovdata#IntracityAreas
 OGD:IntracityAreas rdf:type owl:Class ;
                    rdfs:subClassOf OGD:RegionalMunicipality ;
+                   rdfs:comment "Часть территории города федерального значения, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
                    rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                   rdfs:label "Внутригородская территория города федерального значения" ;
-                   skos:definition "Часть территории города федерального значения, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." .
+                   rdfs:label "Внутригородская территория города федерального значения" .
 
 
 ###  http://www.w3id.org/opengovdata#IntracityMunicipality
 OGD:IntracityMunicipality rdf:type owl:Class ;
                           rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
+                          rdfs:comment "Внутригородское муниципальное образование на части территории городского округа с внутригородским делением, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления. Критерии для деления городских округов с внутригородским делением на внутригородские районы устанавливаются законами субъекта Российской Федерации и уставом городского округа с внутригородским делением." ;
                           rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                          rdfs:label "Внутригородской район" ;
-                          skos:definition "Внутригородское муниципальное образование на части территории городского округа с внутригородским делением, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления. Критерии для деления городских округов с внутригородским делением на внутригородские районы устанавливаются законами субъекта Российской Федерации и уставом городского округа с внутригородским делением." .
+                          rdfs:label "Внутригородской район" .
 
 
 ###  http://www.w3id.org/opengovdata#Kishlack
@@ -261,15 +265,25 @@ OGD:LivingPoint rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#Locality
 OGD:Locality rdf:type owl:Class ;
-             rdfs:subClassOf OGD:OKTMOThesaurus ,
+             rdfs:subClassOf OGD:OKTMO ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty OGD:belongsTo ;
-                               owl:allValuesFrom OGD:Municipality
+                               owl:someValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( OGD:InterSettlementTerritory
+                                                                  OGD:Municipality
+                                                                )
+                                                  ]
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty OGD:belongsTo ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass OGD:Municipality
+                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                   owl:unionOf ( OGD:FederalOkrug
+                                                                 OGD:InterSettlementTerritory
+                                                                 OGD:Municipality
+                                                                 OGD:Okrug
+                                                                 OGD:Region
+                                                               )
+                                                 ]
                              ] ;
              rdfs:comment "Населённое людьми место (поселение), первичная единица расселения людей в пределах одного застроенного жильём земельного участка. В зависимости от размеров и других характеристик выделяются разные типы населённых пунктов — город, посёлок городского типа, село, хутор и прочие)." ;
              rdfs:label "Населённый пункт" .
@@ -284,22 +298,22 @@ OGD:Mestechko rdf:type owl:Class ;
 ###  http://www.w3id.org/opengovdata#MunicipalDistrict
 OGD:MunicipalDistrict rdf:type owl:Class ;
                       rdfs:subClassOf OGD:RegionalMunicipality ;
+                      rdfs:comment "Несколько поселений или поселений и межселенных территорий, объединенных общей территорией, в границах которой местное самоуправление осуществляется в целях решения вопросов местного значения межпоселенческого характера населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." ;
                       rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                      rdfs:label "Муниципальный район" ;
-                      skos:definition "Несколько поселений или поселений и межселенных территорий, объединенных общей территорией, в границах которой местное самоуправление осуществляется в целях решения вопросов местного значения межпоселенческого характера населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." .
+                      rdfs:label "Муниципальный район" .
 
 
 ###  http://www.w3id.org/opengovdata#MunicipalOkrug
 OGD:MunicipalOkrug rdf:type owl:Class ;
                    rdfs:subClassOf OGD:RegionalMunicipality ;
+                   rdfs:comment "Несколько объединенных общей территорией населенных пунктов, не являющихся муниципальными образованиями, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." ;
                    rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                   rdfs:label "Муниципальный округ" ;
-                   skos:definition "Несколько объединенных общей территорией населенных пунктов, не являющихся муниципальными образованиями, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." .
+                   rdfs:label "Муниципальный округ" .
 
 
 ###  http://www.w3id.org/opengovdata#Municipality
 OGD:Municipality rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:OKTMOThesaurus ,
+                 rdfs:subClassOf OGD:OKTMO ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty OGD:hasCapital ;
                                    owl:allValuesFrom OGD:Locality
@@ -313,14 +327,20 @@ OGD:MunicipalityInsideMunicipality rdf:type owl:Class ;
                                    rdfs:subClassOf OGD:Municipality ,
                                                    [ rdf:type owl:Restriction ;
                                                      owl:onProperty OGD:belongsTo ;
-                                                     owl:allValuesFrom OGD:RegionalMunicipality
+                                                     owl:someValuesFrom OGD:RegionalMunicipality
                                                    ] ,
                                                    [ rdf:type owl:Restriction ;
                                                      owl:onProperty OGD:belongsTo ;
-                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                     owl:onClass OGD:RegionalMunicipality
+                                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( OGD:FederalOkrug
+                                                                                       OGD:Okrug
+                                                                                       OGD:Region
+                                                                                       OGD:RegionalMunicipality
+                                                                                     )
+                                                                       ]
                                                    ] ;
-                                   rdfs:label "Внутренний муниципалитет" .
+                                   rdfs:comment "Внутренние муниципальные образования являются нашим условным обозначением муниципальных образований, которые входят в другие муниципальные образования и кодируются во втором триплете." ;
+                                   rdfs:label "Внутреннее муниципально образование" .
 
 
 ###  http://www.w3id.org/opengovdata#OKTMO
@@ -333,12 +353,6 @@ OGD:OKTMO rdf:type owl:Class ;
           rdfs:comment "Отражает все индивиды, отражённые в базе ОКТМО, существующие в реальном мире (таким образом сюда не включены списки ОКТМО)." .
 
 
-###  http://www.w3id.org/opengovdata#OKTMOThesaurus
-OGD:OKTMOThesaurus rdf:type owl:Class ;
-                   rdfs:subClassOf skos:Concept ;
-                   rdfs:label "Словарь ОКТМО" .
-
-
 ###  http://www.w3id.org/opengovdata#Oblast
 OGD:Oblast rdf:type owl:Class ;
            rdfs:subClassOf OGD:Region ;
@@ -347,15 +361,18 @@ OGD:Oblast rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#Okrug
 OGD:Okrug rdf:type owl:Class ;
-          rdfs:subClassOf OGD:OKTMOThesaurus ,
+          rdfs:subClassOf OGD:OKTMO ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty OGD:belongsTo ;
-                            owl:allValuesFrom OGD:Region
+                            owl:someValuesFrom OGD:Region
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty OGD:belongsTo ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass OGD:Region
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( OGD:FederalOkrug
+                                                              OGD:Region
+                                                            )
+                                              ]
                           ] ;
           rdfs:comment "Один из видов административно-территориальной единицы." ;
           rdfs:label "Округ" .
@@ -453,15 +470,18 @@ OGD:Razjezd rdf:type owl:Class ;
 
 ###  http://www.w3id.org/opengovdata#Region
 OGD:Region rdf:type owl:Class ;
-           rdfs:subClassOf OGD:OKTMOThesaurus ,
+           rdfs:subClassOf OGD:OKTMO ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty OGD:belongsTo ;
-                             owl:allValuesFrom OGD:FederalOkrug
+                             owl:someValuesFrom OGD:FederalOkrug
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty OGD:belongsTo ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass OGD:FederalOkrug
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( OGD:FederalOkrug
+                                                               OGD:Region
+                                                             )
+                                               ]
                            ] ;
            rdfs:comment "Общее название субъекта РФ." ;
            rdfs:label "Регион" .
@@ -472,22 +492,23 @@ OGD:RegionalMunicipality rdf:type owl:Class ;
                          rdfs:subClassOf OGD:Municipality ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty OGD:belongsTo ;
-                                           owl:allValuesFrom [ rdf:type owl:Class ;
-                                                               owl:unionOf ( OGD:Okrug
-                                                                             OGD:Region
-                                                                           )
-                                                             ]
+                                           owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( OGD:Okrug
+                                                                              OGD:Region
+                                                                            )
+                                                              ]
                                          ] ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty OGD:belongsTo ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass [ rdf:type owl:Class ;
-                                                         owl:unionOf ( OGD:Okrug
-                                                                       OGD:Region
-                                                                     )
-                                                       ]
+                                           owl:allValuesFrom [ rdf:type owl:Class ;
+                                                               owl:unionOf ( OGD:FederalOkrug
+                                                                             OGD:Okrug
+                                                                             OGD:Region
+                                                                           )
+                                                             ]
                                          ] ;
-                         rdfs:label "Региональный муниципалитет" .
+                         rdfs:comment "Региональные муниципальные образования - наше условное обозначение муниципальных образований, которые входят напрямую в регионы или округа и кодируются в первом триплете." ;
+                         rdfs:label "Региональное муниципальное образование" .
 
 
 ###  http://www.w3id.org/opengovdata#Republic
@@ -505,9 +526,9 @@ OGD:ResortingVillage rdf:type owl:Class ;
 ###  http://www.w3id.org/opengovdata#RuralSettlements
 OGD:RuralSettlements rdf:type owl:Class ;
                      rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
+                     rdfs:comment "Один или несколько объединенных общей территорией сельских населенных пунктов (поселков, сел, станиц, деревень, хуторов, кишлаков, аулов и других сельских населенных пунктов), в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
                      rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                     rdfs:label "Сельское поселение" ;
-                     skos:definition "Один или несколько объединенных общей территорией сельских населенных пунктов (поселков, сел, станиц, деревень, хуторов, кишлаков, аулов и других сельских населенных пунктов), в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." .
+                     rdfs:label "Сельское поселение" .
 
 
 ###  http://www.w3id.org/opengovdata#Selo
@@ -550,17 +571,17 @@ OGD:Uloos rdf:type owl:Class ;
 OGD:UrbanDistrict rdf:type owl:Class ;
                   rdfs:subClassOf OGD:RegionalMunicipality ;
                   owl:disjointWith OGD:UrbanSettlements ;
+                  rdfs:comment "Один или несколько объединенных общей территорией населенных пунктов, не являющихся муниципальными образованиями, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации, при этом не менее двух третей населения такого муниципального образования проживает в городах и (или) иных городских населенных пунктах." ;
                   rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                  rdfs:label "Городской округ" ;
-                  skos:definition "Один или несколько объединенных общей территорией населенных пунктов, не являющихся муниципальными образованиями, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации, при этом не менее двух третей населения такого муниципального образования проживает в городах и (или) иных городских населенных пунктах." .
+                  rdfs:label "Городской округ" .
 
 
 ###  http://www.w3id.org/opengovdata#UrbanSettlements
 OGD:UrbanSettlements rdf:type owl:Class ;
                      rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
+                     rdfs:comment "Город или поселок, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
                      rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
-                     rdfs:label "Городское поселение" ;
-                     skos:definition "Город или поселок, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." .
+                     rdfs:label "Городское поселение" .
 
 
 ###  http://www.w3id.org/opengovdata#WorkingVillage
@@ -588,11 +609,8 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01000000
 <http://www.w3id.org/opengovdata#01000000> rdf:type owl:NamedIndividual ,
-                                                    OGD:Kray ,
-                                                    OGD:OKTMO ;
+                                                    OGD:Kray ;
                                            OGD:belongsTo OGD:Syberia ;
-                                           OGD:hasDateOfAccept "14.06.2013" ;
-                                           OGD:hasDateOfIntroduction "01.01.2014" ;
                                            OGD:hasFullCode 01000000 ;
                                            OGD:hasValueCode 01 ;
                                            rdfs:label "Муниципальные образования Алтайского края" .
@@ -600,12 +618,9 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01601000
 <http://www.w3id.org/opengovdata#01601000> rdf:type owl:NamedIndividual ,
-                                                    OGD:MunicipalDistrict ,
-                                                    OGD:OKTMO ;
+                                                    OGD:MunicipalDistrict ;
                                            OGD:belongsTo <http://www.w3id.org/opengovdata#01000000> ;
                                            OGD:hasCapital <http://www.w3id.org/opengovdata#01703000001> ;
-                                           OGD:hasDateOfAccept "14.06.2013" ;
-                                           OGD:hasDateOfIntroduction "01.01.2014" ;
                                            OGD:hasDescription "Пояснение: входит в состав городского округа город Алейск" ;
                                            OGD:hasFullCode 01601000 ;
                                            OGD:hasValueCode 601 ;
@@ -614,12 +629,9 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01601402
 <http://www.w3id.org/opengovdata#01601402> rdf:type owl:NamedIndividual ,
-                                                    OGD:OKTMO ,
                                                     OGD:RuralSettlements ;
                                            OGD:belongsTo <http://www.w3id.org/opengovdata#01601000> ;
                                            OGD:hasCapital <http://www.w3id.org/opengovdata#01601402101> ;
-                                           OGD:hasDateOfAccept "14.06.2013" ;
-                                           OGD:hasDateOfIntroduction "01.01.2014" ;
                                            OGD:hasFullCode 01601402 ;
                                            OGD:hasValueCode 402 ;
                                            rdfs:label "Алейский сельсовет" .
@@ -627,11 +639,8 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01601402101
 <http://www.w3id.org/opengovdata#01601402101> rdf:type owl:NamedIndividual ,
-                                                       OGD:OKTMO ,
                                                        OGD:Posjelok ;
                                               OGD:belongsTo <http://www.w3id.org/opengovdata#01601402> ;
-                                              OGD:hasDateOfAccept "14.06.2013" ;
-                                              OGD:hasDateOfIntroduction "01.01.2014" ;
                                               OGD:hasFullCode 01601402101 ;
                                               OGD:hasValueCode 101 ;
                                               rdfs:label "п Алейский" .
@@ -639,12 +648,9 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01703000
 <http://www.w3id.org/opengovdata#01703000> rdf:type owl:NamedIndividual ,
-                                                    OGD:OKTMO ,
                                                     OGD:UrbanDistrict ;
                                            OGD:belongsTo <http://www.w3id.org/opengovdata#01000000> ;
                                            OGD:hasCapital <http://www.w3id.org/opengovdata#01703000001> ;
-                                           OGD:hasDateOfAccept "14.06.2013" ;
-                                           OGD:hasDateOfIntroduction "01.01.2014" ;
                                            OGD:hasFullCode 01703000 ;
                                            OGD:hasValueCode 703 ;
                                            rdfs:label "город Алейск" .
@@ -652,11 +658,8 @@ OGD:Syberia rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3id.org/opengovdata#01703000001
 <http://www.w3id.org/opengovdata#01703000001> rdf:type owl:NamedIndividual ,
-                                                       OGD:City ,
-                                                       OGD:OKTMO ;
+                                                       OGD:City ;
                                               OGD:belongsTo <http://www.w3id.org/opengovdata#01703000> ;
-                                              OGD:hasDateOfAccept "01.01.2014" ,
-                                                                  "14.06.2013" ;
                                               OGD:hasFullCode 01703000001 ;
                                               OGD:hasValueCode 001 ;
                                               rdfs:label "г Алейск" .
