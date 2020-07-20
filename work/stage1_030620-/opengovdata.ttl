@@ -43,8 +43,6 @@ OGD:consistOfSubject rdf:type owl:ObjectProperty ;
 OGD:hasCapital rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
                owl:inverseOf OGD:isCapitalOf ;
-               rdfs:domain OGD:Municipality ;
-               rdfs:range OGD:Locality ;
                rdfs:comment "Отражает административный центр муниципального образования, если таковой имеется." ;
                rdfs:label "имеет административный центр" .
 
@@ -52,8 +50,6 @@ OGD:hasCapital rdf:type owl:ObjectProperty ;
 ###  http://www.w3id.org/opengovdata#includedInAsSubjectOfRF
 OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf OGD:belongsTo ;
-                            rdfs:domain OGD:AutonomousOkrug ;
-                            rdfs:range OGD:Region ;
                             rdfs:comment "Вхождение автономного округа в территориальный состав другого при сохранении полной автономии от него." ;
                             rdfs:label "входит как самостоятельный субъект РФ в" .
 
@@ -340,7 +336,7 @@ OGD:MunicipalityInsideMunicipality rdf:type owl:Class ;
                                                                        ]
                                                    ] ;
                                    rdfs:comment "Внутренние муниципальные образования являются нашим условным обозначением муниципальных образований, которые входят в другие муниципальные образования и кодируются во втором триплете." ;
-                                   rdfs:label "Внутреннее муниципально образование" .
+                                   rdfs:label "Внутреннее муниципальное образование" .
 
 
 ###  http://www.w3id.org/opengovdata#OKTMO
