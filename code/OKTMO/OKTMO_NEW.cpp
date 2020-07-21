@@ -11,6 +11,7 @@ using namespace std;
 // Объявляем файл основного вывода, карту  для того, чтобы иметь к нему доступ из любой точки кода.
 ofstream OKTMO_ontology_object_database;
 vector <vector <string>> capitals;
+string locality_type_list[44][3];
 
 // Метод поиска позиции определённого вхождения определённого символа. Возвращает нулевой символ при поиске
 // нулевого вхождения символа, а также последний символ, если вхождение символа больше чем количество
@@ -215,7 +216,7 @@ string getCapital(map <string, string> object)
     for (int i = 0; i < capitals[region].size(); i++) 
     {
         potential_capital = capitals[region][i];
-        capital = atribut(2, potential_capital);
+        capital = clean_quotes(atribut(2, potential_capital));
         if (capital == object["capital"])
         {
                 potential_capitals.push_back(potential_capital.substr(0, 11));
@@ -254,18 +255,35 @@ string getCapital(map <string, string> object)
     return "null";
 }
 
+vector <string> get_locality_type(map <string, string> OKTMO_atributs)
+{
+    vector <string> object_locality_type_list;
+    for (int i = 0; i < 44; i++) 
+    {
+        if ((OKTMO_atributs["name"].find(" " + locality_type_list[i][0] +" ") != -1)
+            || (OKTMO_atributs["name"].find("\"" + locality_type_list[i][0] + " ") != -1)
+            || (OKTMO_atributs["name"].find(" " + locality_type_list[i][0] + "\"") != -1)
+            || (OKTMO_atributs["name"].find(" " + locality_type_list[i][0] + ".") != -1)
+            ) 
+        {
+            object_locality_type_list.push_back(locality_type_list[i][1]);
+        }
+    }
+    return object_locality_type_list;
+}
+
 // Разбивает строчку на атрибуты и создаёт массив с ключами для удобной работы с кодом и его человеко-читаемости.
 map <string, string> create_OKTMO_atributs_map (string object)
 {
     map <string, string> OKTMO_atributs;
-    OKTMO_atributs["first_level_code"] = (atribut(1, object)).substr(1, 3);
+    OKTMO_atributs["first_level_code"] = (atribut(1, object)).substr(1, 2);
     OKTMO_atributs["second_level_code"] = (atribut(2, object)).substr(1, 3);
     OKTMO_atributs["third_level_code"] = (atribut(3, object)).substr(1, 3);
     OKTMO_atributs["fourth_level_code"] = (atribut(4, object)).substr(1,3);
     OKTMO_atributs["section"] = (atribut(6, object)).substr(1,1);
-    OKTMO_atributs["name"] = atribut(7, object);
-    OKTMO_atributs["capital"] = atribut(8, object);
-    OKTMO_atributs["description"] = atribut(9, object);
+    OKTMO_atributs["name"] = clean_quotes(atribut(7, object));
+    OKTMO_atributs["capital"] = clean_quotes(atribut(8, object));
+    OKTMO_atributs["description"] = clean_quotes(atribut(9, object));
     OKTMO_atributs["change_number"] = atribut(10, object);
     OKTMO_atributs["change_type"] = atribut(11, object);
     OKTMO_atributs["acceptance_date"] = atribut(12, object);
@@ -277,7 +295,7 @@ void OKTMO_object_create (map <string, string> OKTMO_atributs, string OKTMO_clas
     string full_code, string value_code)
 {
     // Начинаем создание TTL кода.
-    OKTMO_ontology_object_database << "###  https://w3id.org/opengovdataOKTMO_" << full_code << endl
+    OKTMO_ontology_object_database << "###  https://w3id.org/opengovdata#OKTMO_" << full_code << endl
         << ":OKTMO_" << full_code << " rdf:type owl:NamedIndividual ," << endl
         << "OGD:" << OKTMO_class << " ;" << endl
         << "OGD:hasFullCode " << full_code << " ;" << endl
@@ -295,7 +313,7 @@ void OKTMO_object_create (map <string, string> OKTMO_atributs, string OKTMO_clas
 
     if (OKTMO_atributs["description"] != "null")
     {
-        OKTMO_ontology_object_database << "OGD:hasDescription: " << clean_quotes(OKTMO_atributs["description"]) << " ;" << endl;
+        OKTMO_ontology_object_database << "OGD:hasDescription " << OKTMO_atributs["description"] << " ;" << endl;
     }
 
     if (OKTMO_atributs["change_number"] != "null" && OKTMO_atributs["change_number"] != "\"000\"")
@@ -313,6 +331,21 @@ void OKTMO_object_create (map <string, string> OKTMO_atributs, string OKTMO_clas
     {
         OKTMO_ontology_object_database << "OGD:hasInitiationDate \"" << OKTMO_atributs["initiation_date"] << "\" ;" << endl;
     }
+    
+    if (OKTMO_atributs["fourth_level_code"] != "000")
+    {
+        vector <string> object_locality_type_list = get_locality_type(OKTMO_atributs);
+        for (int i = 0; i < object_locality_type_list.size(); i++)
+        {
+            OKTMO_ontology_object_database << "OGD:hasLocalityType :" << object_locality_type_list[i] << " ;" << endl;
+        }
+    }
+
+    if ((OKTMO_atributs["description"].find("ЗАТО") != -1) || (OKTMO_atributs["name"].find("ЗАТО") != -1))
+    {
+        OKTMO_ontology_object_database << "OGD:isZATO : \"true\" ^ ^xsd:boolean ;" << endl;
+    }
+
 
     OKTMO_ontology_object_database << "rdfs:label " << OKTMO_atributs["name"] << " ." << endl << endl << endl;
 }
@@ -396,6 +429,7 @@ void create_capitals_note()
         }
         capitals.push_back(a);
     }
+    OKTMO_capital_database.close();
 }
 
 int main()
@@ -410,28 +444,35 @@ int main()
     // а затем все объекты автономных округов/округов. А также открываем файл записи наших объектов.
     ifstream OKTMO_database("OKTMO_database.csv");
     OKTMO_ontology_object_database.open("OKTMO_ontology_object_database.csv");
-    // Создаём карту административных центров
+    // Создаём карту административных центров и массив типов населённых пунктов
     create_capitals_note();
+    ifstream OKTMO_loacality_type_database("OKTMO_locality_type_base.csv");
+    for (int i = 0; i < 44; i++) {
+        getline(OKTMO_loacality_type_database, object);
+        locality_type_list[i][0] = atribut(1, object);
+        locality_type_list[i][1] = atribut(2, object);
+    }
+    OKTMO_loacality_type_database.close();
     // Пропускаем служебную строчку
     getline(OKTMO_database, object);
     // Запрашиваем количество объектов
-    cout << "Enter the number of non-autonomous okrug / non-okrug objects.";
-    cin >> OKTMO_amount;
     cout << "Enter the number of autonomous okrug / okrug objects.";
     cin >> OKTMO_autonomous_amount;
-    // Создаём объекты неавтономных округов/округов
-    for (int i = 0; i < OKTMO_amount; i++) {      
-        getline(OKTMO_database, object);
-        OKTMO_non_autonomous_identification (object);
-        if (i % 100 == 0) {
-            cout << i;
-        }
-    }
+    cout << "Enter the number of non-autonomous okrug / non-okrug objects.";
+    cin >> OKTMO_amount;
     // Создаём объекты автономных округов/округов
     for (int i = 0; i < OKTMO_autonomous_amount; i++) {
         string object;
         getline(OKTMO_database, object);
         OKTMO_autonomous_identification(object);
+    }
+    // Создаём объекты неавтономных округов/округов
+    for (int i = 0; i < OKTMO_amount; i++) {      
+        getline(OKTMO_database, object);
+        OKTMO_non_autonomous_identification (object);
+        if (i % 1000 == 0) {
+            cout << i;
+        }
     }
     // Закрываем файлы
     OKTMO_database.close();
