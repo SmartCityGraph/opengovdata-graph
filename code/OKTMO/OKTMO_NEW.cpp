@@ -295,7 +295,7 @@ void OKTMO_object_create (map <string, string> OKTMO_atributs, string OKTMO_clas
 
     if (OKTMO_atributs["description"] != "null")
     {
-        OKTMO_ontology_object_database << "hasDescription: " << clean_quotes(OKTMO_atributs["description"]) << " ;" << endl;
+        OKTMO_ontology_object_database << "OGD:hasDescription: " << clean_quotes(OKTMO_atributs["description"]) << " ;" << endl;
     }
 
     if (OKTMO_atributs["change_number"] != "null" && OKTMO_atributs["change_number"] != "\"000\"")
