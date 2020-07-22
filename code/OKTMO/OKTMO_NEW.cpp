@@ -451,7 +451,7 @@ int main()
 
     // Открываем базу данных и файл записи наших объектов.
     ifstream OKTMO_database("OKTMO_database.csv");
-    OKTMO_ontology_object_database.open("OKTMO_ontology_object_database.csv");
+    OKTMO_ontology_object_database.open("OKTMO_ontology_object_database.ttl");
     // Создаём карту административных центров и массив типов населённых пунктов
     create_capitals_note();
     create_locality_type_list();
