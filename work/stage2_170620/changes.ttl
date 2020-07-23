@@ -1,0 +1,879 @@
+
+#################################################################
+#    FederalOkrug
+#################################################################
+
+
+
+###  http://www.w3id.org/opengovdata#Central
+OGD:Central rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 1 ;
+            OGD:hasCapital :OKTMO_45000000 ;
+            rdfs:label "Центральный федеральный округ" .
+
+###  http://www.w3id.org/opengovdata#NorthWest
+OGD:NorthWest rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 2;
+            OGD:hasCapital :OKTMO_40000000 ;
+            rdfs:label "Северо-Западный федеральный округ" .
+
+###  http://www.w3id.org/opengovdata#South
+OGD:South rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 3;
+            OGD:hasCapital :OKTMO_60701000001   ;
+            rdfs:label "Южный федеральный округ" .
+
+###  http://www.w3id.org/opengovdata#NorthCaucasian
+OGD:NorthCaucasian rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 4;
+            OGD:hasCapital :OKTMO_07727000001  ;
+            rdfs:label "Северо-Кавказский федеральный округ" .
+
+###  http://www.w3id.org/opengovdata#Volga
+OGD:Volga rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 5 ;
+            OGD:hasCapital :OKTMO_22701000001
+            rdfs:label "Приволжский федеральный округ" .
+
+###  http://www.w3id.org/opengovdata#Ural
+OGD:Ural rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 6 ;
+            OGD:hasCapital :OKTMO_65701000001  ;
+            rdfs:label "Уральский федеральный округ" .  
+
+###  http://www.w3id.org/opengovdata#Syberia
+OGD:Syberia rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 7 ;
+            OGD:hasCapital :OKTMO_50701000001  ;
+            rdfs:label "Сибирский федеральный округ" .  
+
+###  http://www.w3id.org/opengovdata#FarEast
+OGD:FarEast rdf:type owl:NamedIndividual ,
+                     OGD:FederalOkrug ;
+            OGD:hasNumber 8 ;
+            OGD:hasCapital :OKTMO_05701000001  ;
+            rdfs:label "Дальневосточный федеральный округ" .        
+
+#################################################################
+#    Okrug
+#################################################################
+
+###  https://w3id.org/opengovdata#OKTMO_30800000
+:OKTMO_30800000 rdf:type owl:NamedIndividual ,
+OGD:Okrug ;
+OGD:hasFullCode 30800000 ;
+OGD:hasValueCode 800 ;
+OGD:includedIn :OKTMO_30000000 ;
+OGD:hasCapital :OKTMO_30851000051 ;
+rdfs:label "Корякский округ" .
+
+#################################################################
+#    AutonomousOkrug 
+#################################################################
+
+
+###  https://w3id.org/opengovdata#OKTMO_71900000
+:OKTMO_71900000 rdf:type owl:NamedIndividual ,
+OGD:AutonomousOkrug ;
+OGD:hasFullCode 71900000 ;
+OGD:hasValueCode 900 ;
+OGD:includedInAsSubjectOfRF :OKTMO_71000000 ;
+OGD:hasCapital :OKTMO_71951000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Ямало-Ненецкий автономный округ" .
+
+###  https://w3id.org/opengovdata#OKTMO_71800000
+:OKTMO_71800000 rdf:type owl:NamedIndividual ,
+OGD:AutonomousOkrug ;
+OGD:hasFullCode 71800000 ;
+OGD:hasValueCode 800 ;
+OGD:includedInAsSubjectOfRF :OKTMO_71000000 ;
+OGD:hasCapital :OKTMO_71871000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Ханты-Мансийский автономный округ - Югры" .
+
+###  https://w3id.org/opengovdata#OKTMO_11800000
+:OKTMO_11800000 rdf:type owl:NamedIndividual ,
+OGD:AutonomousOkrug ;
+OGD:hasFullCode 11800000 ;
+OGD:hasValueCode 800 ;
+OGD:includedInAsSubjectOfRF :OKTMO_11000000 ;
+OGD:hasCapital :OKTMO_11851000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Ненецкий автономный округ" .
+
+###  https://w3id.org/opengovdata#OKTMO_77000000
+:OKTMO_77000000 rdf:type owl:NamedIndividual ,
+OGD:AutonomousOkrug ;
+OGD:hasFullCode 77000000 ;
+OGD:hasValueCode 77 ;
+OGD:hasCapital :OKTMO_77701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Чукотский автономный округ" .
+
+#################################################################
+#    AutonomousOblast
+#################################################################
+
+###  https://w3id.org/opengovdata#OKTMO_99000000
+:OKTMO_99000000 rdf:type owl:NamedIndividual ,
+OGD:AutonomousOblast ;
+OGD:hasFullCode 99000000 ;
+OGD:hasValueCode 99 ;
+OGD:hasCapital :OKTMO_99701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Еврейская автономная область" .
+
+#################################################################
+#    Kray
+#################################################################
+
+
+###  https://w3id.org/opengovdata#OKTMO_01000000
+:OKTMO_01000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 01000000 ;
+OGD:hasValueCode 01 ;
+OGD:hasCapital :OKTMO_01701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Алтайский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_30000000
+:OKTMO_30000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 30000000 ;
+OGD:hasValueCode 30 ;
+OGD:hasCapital :OKTMO_30701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Камчатский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_08000000
+:OKTMO_08000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 08000000 ;
+OGD:hasValueCode 08 ;
+OGD:hasCapital :OKTMO_08701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Хабаровский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_03000000
+:OKTMO_03000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 03000000 ;
+OGD:hasValueCode 03 ;
+OGD:hasCapital :OKTMO_03701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Краснодарский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_04000000
+:OKTMO_04000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 04000000 ;
+OGD:hasValueCode 04 ;
+OGD:hasCapital :OKTMO_04701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Красноярский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_57000000
+:OKTMO_57000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 57000000 ;
+OGD:hasValueCode 57 ;
+OGD:hasCapital :OKTMO_57701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Пермский край" .
+
+
+###  https://w3id.org/opengovdata#OKTMO_05000000
+:OKTMO_05000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 05000000 ;
+OGD:hasValueCode 05 ;
+OGD:hasCapital :OKTMO_05701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Приморский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_07000000
+:OKTMO_07000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 07000000 ;
+OGD:hasValueCode 07 ;
+OGD:hasCapital :OKTMO_07701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Ставропольский край" .
+
+###  https://w3id.org/opengovdata#OKTMO_76000000
+:OKTMO_76000000 rdf:type owl:NamedIndividual ,
+OGD:Kray ;
+OGD:hasFullCode 76000000 ;
+OGD:hasValueCode 76 ;
+OGD:hasCapital :OKTMO_76701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Забайкальский край" .
+
+
+#################################################################
+#    FederalCity
+#################################################################
+
+###  https://w3id.org/opengovdata#OKTMO_45000000
+:OKTMO_45000000 rdf:type owl:NamedIndividual ,
+OGD:FederalCity ;
+OGD:hasFullCode 45000000 ;
+OGD:hasValueCode 45 ;
+rdfs:label "Город Москва (столица Российской Федерации)" .
+
+###  https://w3id.org/opengovdata#OKTMO_40000000
+:OKTMO_40000000 rdf:type owl:NamedIndividual ,
+OGD:FederalCity ;
+OGD:hasFullCode 40000000 ;
+OGD:hasValueCode 40 ;
+rdfs:label "Город Санкт-Петербург" .
+
+###  https://w3id.org/opengovdata#OKTMO_67000000
+:OKTMO_67000000 rdf:type owl:NamedIndividual ,
+OGD:FederalCity ;
+OGD:hasFullCode 67000000 ;
+OGD:hasValueCode 67 ;
+OGD:hasChangeNumber "049" ;
+OGD:hasChangeType "3" ;
+OGD:hasAcceptanceDate "17.04.2014" ;
+OGD:hasInitiationDate "18.04.2014" ;
+rdfs:label "Севастополь" .
+
+#################################################################
+#    Republic
+#################################################################
+
+###  https://w3id.org/opengovdata#OKTMO_79000000
+:OKTMO_79000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 79000000 ;
+OGD:hasValueCode 79 ;
+OGD:hasCapital :OKTMO_79701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Республика Адыгея" .
+
+###  https://w3id.org/opengovdata#OKTMO_84000000
+:OKTMO_84000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 84000000 ;
+OGD:hasValueCode 84 ;
+OGD:hasCapital :OKTMO_84701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Республика Алтай" .
+
+###  https://w3id.org/opengovdata#OKTMO_80000000
+:OKTMO_80000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 80000000 ;
+OGD:hasValueCode 80 ;
+OGD:hasCapital :OKTMO_80701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Республика Башкортостан" .
+
+###  https://w3id.org/opengovdata#OKTMO_81000000
+:OKTMO_81000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 81000000 ;
+OGD:hasValueCode 81 ;
+OGD:hasCapital :OKTMO_81701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Республика Бурятия" .
+
+###  https://w3id.org/opengovdata#OKTMO_82000000
+:OKTMO_82000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 82000000 ;
+OGD:hasValueCode 82 ;
+OGD:hasCapital :OKTMO_82701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Республика Дагестан" .
+
+
+###  https://w3id.org/opengovdata#OKTMO_26000000
+:OKTMO_26000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 26000000 ;
+OGD:hasValueCode 26 ;
+OGD:hasCapital :OKTMO_26701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Республика Ингушетия" .
+
+###  https://w3id.org/opengovdata#OKTMO_83000000
+:OKTMO_83000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 83000000 ;
+OGD:hasValueCode 83 ;
+OGD:hasCapital :OKTMO_83701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Кабардино-Балкарская Республика" .
+
+###  https://w3id.org/opengovdata#OKTMO_85000000
+:OKTMO_85000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 85000000 ;
+OGD:hasValueCode 85 ;
+OGD:hasCapital :OKTMO_85701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Республика Калмыкия" .
+
+###  https://w3id.org/opengovdata#OKTMO_91000000
+:OKTMO_91000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 91000000 ;
+OGD:hasValueCode 91 ;
+OGD:hasCapital :OKTMO_91701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Карачаево-Черкесская Республика" .
+
+###  https://w3id.org/opengovdata#OKTMO_86000000
+:OKTMO_86000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 86000000 ;
+OGD:hasValueCode 86 ;
+OGD:hasCapital :OKTMO_86701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Республика Карелия" .
+
+###  https://w3id.org/opengovdata#OKTMO_87000000
+:OKTMO_87000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 87000000 ;
+OGD:hasValueCode 87 ;
+OGD:hasCapital :OKTMO_87701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Республика Коми" .
+
+###  https://w3id.org/opengovdata#OKTMO_88000000
+:OKTMO_88000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 88000000 ;
+OGD:hasValueCode 88 ;
+OGD:hasCapital :OKTMO_88701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Республика Марий Эл" .
+
+###  https://w3id.org/opengovdata#OKTMO_89000000
+:OKTMO_89000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 89000000 ;
+OGD:hasValueCode 89 ;
+OGD:hasCapital :OKTMO_89701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Республика Мордовия" .
+
+###  https://w3id.org/opengovdata#OKTMO_98000000
+:OKTMO_98000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 98000000 ;
+OGD:hasValueCode 98 ;
+OGD:hasCapital :OKTMO_98701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Республика Саха (Якутия)" .
+
+###  https://w3id.org/opengovdata#OKTMO_90000000
+:OKTMO_90000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 90000000 ;
+OGD:hasValueCode 90 ;
+OGD:hasCapital :OKTMO_90701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Республика Северная Осетия-Алания" .
+
+###  https://w3id.org/opengovdata#OKTMO_92000000
+:OKTMO_92000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 92000000 ;
+OGD:hasValueCode 92 ;
+OGD:hasCapital :OKTMO_92701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Республика Татарстан (Татарстан)" .
+
+###  https://w3id.org/opengovdata#OKTMO_93000000
+:OKTMO_93000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 93000000 ;
+OGD:hasValueCode 93 ;
+OGD:hasCapital :OKTMO_93701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Республика Тыва" .
+
+###  https://w3id.org/opengovdata#OKTMO_94000000
+:OKTMO_94000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 94000000 ;
+OGD:hasValueCode 94 ;
+OGD:hasCapital :OKTMO_94701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Удмуртская Республика" .
+
+###  https://w3id.org/opengovdata#OKTMO_95000000
+:OKTMO_95000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 95000000 ;
+OGD:hasValueCode 95 ;
+OGD:hasCapital :OKTMO_95701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Республика Хакасия" .
+
+###  https://w3id.org/opengovdata#OKTMO_96000000
+:OKTMO_96000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 96000000 ;
+OGD:hasValueCode 96 ;
+OGD:hasCapital :OKTMO_96701000001 ;
+OGD:includedIn :NorthCaucasian ;
+rdfs:label "Чеченская Республика" .
+
+###  https://w3id.org/opengovdata#OKTMO_97000000
+:OKTMO_97000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 97000000 ;
+OGD:hasValueCode 97 ;
+OGD:hasCapital :OKTMO_997701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Чувашская Республика - Чувашия" .
+
+###  https://w3id.org/opengovdata#OKTMO_35000000
+:OKTMO_35000000 rdf:type owl:NamedIndividual ,
+OGD:Republic ;
+OGD:hasFullCode 35000000 ;
+OGD:hasValueCode 35 ;
+OGD:hasChangeNumber "049" ;
+OGD:hasChangeType "3" ;
+OGD:hasAcceptanceDate "17.04.2014" ;
+OGD:hasInitiationDate "18.04.2014" ;
+OGD:hasCapital :OKTMO_35701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Республика Крым" .
+
+#################################################################
+#    Oblast
+#################################################################
+
+
+###  https://w3id.org/opengovdata#OKTMO_10000000
+:OKTMO_10000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 10000000 ;
+OGD:hasValueCode 10 ;
+OGD:hasCapital :OKTMO_10701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Амурская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_11000000
+:OKTMO_11000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 11000000 ;
+OGD:hasValueCode 11 ;
+OGD:hasCapital :OKTMO_11701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Архангельская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_12000000
+:OKTMO_12000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 12000000 ;
+OGD:hasValueCode 12 ;
+OGD:hasCapital :OKTMO_12701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Астраханская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_14000000
+:OKTMO_14000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 14000000 ;
+OGD:hasValueCode 14 ;
+OGD:hasCapital :OKTMO_14701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Белгородская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_15000000
+:OKTMO_15000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 15000000 ;
+OGD:hasValueCode 15 ;
+OGD:hasCapital :OKTMO_15701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Брянская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_75000000
+:OKTMO_75000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 75000000 ;
+OGD:hasValueCode 75 ;
+OGD:hasCapital :OKTMO_75701000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Челябинская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_25000000
+:OKTMO_25000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 25000000 ;
+OGD:hasValueCode 25 ;
+OGD:hasCapital :OKTMO_25701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Иркутская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_24000000
+:OKTMO_24000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 24000000 ;
+OGD:hasValueCode 24 ;
+OGD:hasCapital :OKTMO_24701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Ивановская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_27000000
+:OKTMO_27000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 27000000 ;
+OGD:hasValueCode 27 ;
+OGD:hasCapital :OKTMO_27701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Калининградская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_29000000
+:OKTMO_29000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 29000000 ;
+OGD:hasValueCode 29 ;
+OGD:hasCapital :OKTMO_29701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Калужская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_32000000
+:OKTMO_32000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 32000000 ;
+OGD:hasValueCode 32 ;
+OGD:hasChangeNumber "342" ;
+OGD:hasChangeType "2" ;
+OGD:hasAcceptanceDate "17.07.2019" ;
+OGD:hasInitiationDate "01.08.2019" ;
+OGD:hasCapital :OKTMO_32701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Кемеровская область - Кузбасс" .
+
+###  https://w3id.org/opengovdata#OKTMO_33000000
+:OKTMO_33000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 33000000 ;
+OGD:hasValueCode 33 ;
+OGD:hasCapital :OKTMO_33701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Кировская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_34000000
+:OKTMO_34000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 34000000 ;
+OGD:hasValueCode 34 ;
+OGD:hasCapital :OKTMO_34701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Костромская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_37000000
+:OKTMO_37000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 37000000 ;
+OGD:hasValueCode 37 ;
+OGD:hasCapital :OKTMO_37701000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Курганская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_38000000
+:OKTMO_38000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 38000000 ;
+OGD:hasValueCode 38 ;
+OGD:hasCapital :OKTMO_38701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Курская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_41000000
+:OKTMO_41000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 41000000 ;
+OGD:hasValueCode 41 ;
+OGD:hasCapital :OKTMO_40000000 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Ленинградская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_42000000
+:OKTMO_42000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 42000000 ;
+OGD:hasValueCode 42 ;
+OGD:hasCapital :OKTMO_42701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Липецкая область" .
+
+###  https://w3id.org/opengovdata#OKTMO_44000000
+:OKTMO_44000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 44000000 ;
+OGD:hasValueCode 44 ;
+OGD:hasCapital :OKTMO_44701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Магаданская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_46000000
+:OKTMO_46000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 46000000 ;
+OGD:hasValueCode 46 ;
+OGD:hasCapital :OKTMO_45000000 ;
+OGD:includedIn :Central ;
+rdfs:label "Московская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_47000000
+:OKTMO_47000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 47000000 ;
+OGD:hasValueCode 47 ;
+OGD:hasCapital :OKTMO_47701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Мурманская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_22000000
+:OKTMO_22000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 22000000 ;
+OGD:hasValueCode 22 ;
+OGD:hasCapital :OKTMO_22701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Нижегородская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_49000000
+:OKTMO_49000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 49000000 ;
+OGD:hasValueCode 49 ;
+OGD:hasCapital :OKTMO_49701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Новгородская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_50000000
+:OKTMO_50000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 50000000 ;
+OGD:hasValueCode 50 ;
+OGD:hasCapital :OKTMO_50701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Новосибирская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_52000000
+:OKTMO_52000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 52000000 ;
+OGD:hasValueCode 52 ;
+OGD:hasCapital :OKTMO_52701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Омская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_53000000
+:OKTMO_53000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 53000000 ;
+OGD:hasValueCode 53 ;
+OGD:hasCapital :OKTMO_53701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Оренбургская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_54000000
+:OKTMO_54000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 54000000 ;
+OGD:hasValueCode 54 ;
+OGD:hasCapital :OKTMO_54701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Орловская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_56000000
+:OKTMO_56000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 56000000 ;
+OGD:hasValueCode 56 ;
+OGD:hasCapital :OKTMO_56701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Пензенская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_58000000
+:OKTMO_58000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 58000000 ;
+OGD:hasValueCode 58 ;
+OGD:hasCapital :OKTMO_58701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Псковская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_60000000
+:OKTMO_60000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 60000000 ;
+OGD:hasValueCode 60 ;
+OGD:hasCapital :OKTMO_60701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Ростовская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_61000000
+:OKTMO_61000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 61000000 ;
+OGD:hasValueCode 61 ;
+OGD:hasCapital :OKTMO_61701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Рязанская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_64000000
+:OKTMO_64000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 64000000 ;
+OGD:hasValueCode 64 ;
+OGD:hasCapital :OKTMO_64701000001 ;
+OGD:includedIn :FarEast ;
+rdfs:label "Сахалинская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_36000000
+:OKTMO_36000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 36000000 ;
+OGD:hasValueCode 36 ;
+OGD:hasCapital :OKTMO_36701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Самарская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_63000000
+:OKTMO_63000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 63000000 ;
+OGD:hasValueCode 63 ;
+OGD:hasCapital :OKTMO_63701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Саратовская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_66000000
+:OKTMO_66000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 66000000 ;
+OGD:hasValueCode 66 ;
+OGD:hasCapital :OKTMO_66701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Смоленская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_65000000
+:OKTMO_65000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 65000000 ;
+OGD:hasValueCode 65 ;
+OGD:hasCapital :OKTMO_65701000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Свердловская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_68000000
+:OKTMO_68000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 68000000 ;
+OGD:hasValueCode 68 ;
+OGD:hasCapital :OKTMO_68701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Тамбовская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_69000000
+:OKTMO_69000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 69000000 ;
+OGD:hasValueCode 69 ;
+OGD:hasCapital :OKTMO_69701000001 ;
+OGD:includedIn :Syberia ;
+rdfs:label "Томская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_28000000
+:OKTMO_28000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 28000000 ;
+OGD:hasValueCode 28 ;
+OGD:hasCapital :OKTMO_28701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Тверская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_70000000
+:OKTMO_70000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 70000000 ;
+OGD:hasValueCode 70 ;
+OGD:hasCapital :OKTMO_70701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Тульская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_71000000
+:OKTMO_71000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 71000000 ;
+OGD:hasValueCode 71 ;
+OGD:hasCapital :OKTMO_71701000001 ;
+OGD:includedIn :Ural ;
+rdfs:label "Тюменская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_73000000
+:OKTMO_73000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 73000000 ;
+OGD:hasValueCode 73 ;
+OGD:hasCapital :OKTMO_73701000001 ;
+OGD:includedIn :Volga ;
+rdfs:label "Ульяновская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_17000000
+:OKTMO_17000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 17000000 ;
+OGD:hasValueCode 17 ;
+OGD:hasCapital :OKTMO_17701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Владимирская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_18000000
+:OKTMO_18000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 18000000 ;
+OGD:hasValueCode 18 ;
+OGD:hasCapital :OKTMO_18701000001 ;
+OGD:includedIn :South ;
+rdfs:label "Волгоградская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_19000000
+:OKTMO_19000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 19000000 ;
+OGD:hasValueCode 19 ;
+OGD:hasCapital :OKTMO_19701000001 ;
+OGD:includedIn :NorthWest ;
+rdfs:label "Вологодская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_20000000
+:OKTMO_20000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 20000000 ;
+OGD:hasValueCode 20 ;
+OGD:hasCapital :OKTMO_20701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Воронежская область" .
+
+###  https://w3id.org/opengovdata#OKTMO_78000000
+:OKTMO_78000000 rdf:type owl:NamedIndividual ,
+OGD:Oblast ;
+OGD:hasFullCode 78000000 ;
+OGD:hasValueCode 78 ;
+OGD:hasCapital :OKTMO_78701000001 ;
+OGD:includedIn :Central ;
+rdfs:label "Ярославская область" .
