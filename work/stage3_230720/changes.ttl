@@ -6,56 +6,56 @@
 
 
 ###  http://www.w3id.org/opengovdata#Central
-OGD:Central rdf:type owl:NamedIndividual ,
+:Central rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 1 ;
             OGD:hasCapital :OKTMO_45000000 ;
             rdfs:label "Центральный федеральный округ" .
 
 ###  http://www.w3id.org/opengovdata#NorthWest
-OGD:NorthWest rdf:type owl:NamedIndividual ,
+:NorthWest rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 2;
             OGD:hasCapital :OKTMO_40000000 ;
             rdfs:label "Северо-Западный федеральный округ" .
 
 ###  http://www.w3id.org/opengovdata#South
-OGD:South rdf:type owl:NamedIndividual ,
+:South rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 3;
             OGD:hasCapital :OKTMO_60701000001   ;
             rdfs:label "Южный федеральный округ" .
 
 ###  http://www.w3id.org/opengovdata#NorthCaucasian
-OGD:NorthCaucasian rdf:type owl:NamedIndividual ,
+:NorthCaucasian rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 4;
             OGD:hasCapital :OKTMO_07727000001  ;
             rdfs:label "Северо-Кавказский федеральный округ" .
 
 ###  http://www.w3id.org/opengovdata#Volga
-OGD:Volga rdf:type owl:NamedIndividual ,
+:Volga rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 5 ;
             OGD:hasCapital :OKTMO_22701000001
             rdfs:label "Приволжский федеральный округ" .
 
 ###  http://www.w3id.org/opengovdata#Ural
-OGD:Ural rdf:type owl:NamedIndividual ,
+:Ural rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 6 ;
             OGD:hasCapital :OKTMO_65701000001  ;
             rdfs:label "Уральский федеральный округ" .  
 
 ###  http://www.w3id.org/opengovdata#Syberia
-OGD:Syberia rdf:type owl:NamedIndividual ,
+:Syberia rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 7 ;
             OGD:hasCapital :OKTMO_50701000001  ;
             rdfs:label "Сибирский федеральный округ" .  
 
 ###  http://www.w3id.org/opengovdata#FarEast
-OGD:FarEast rdf:type owl:NamedIndividual ,
+:FarEast rdf:type owl:NamedIndividual ,
                      OGD:FederalOkrug ;
             OGD:hasNumber 8 ;
             OGD:hasCapital :OKTMO_05701000001  ;
