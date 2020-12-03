@@ -1,20 +1,20 @@
-@prefix : <https://w3id.org/opengovdata> .
-@prefix OGD: <http://www.w3id.org/opengovdata#> .
+@prefix : <http://citygraph.onti.actcognitive.org/ogd/oktmo> .
+@prefix OGD: <http://citygraph.onti.actcognitive.org/ogd/oktmo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@base <http://www.w3id.org/opengovdata> .
+@base <http://citygraph.onti.actcognitive.org/ogd/oktmo> .
 
-<http://www.w3id.org/opengovdata> rdf:type owl:Ontology .
+<http://citygraph.onti.actcognitive.org/ogd/oktmo> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.w3id.org/opengovdata#consistOf
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#consistOf
 OGD:consistOf rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
               owl:inverseOf OGD:includedIn ;
@@ -23,7 +23,7 @@ OGD:consistOf rdf:type owl:ObjectProperty ;
               rdfs:label "имеет внутренний объект" .
 
 
-###  http://www.w3id.org/opengovdata#consistOfSubject
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#consistOfSubject
 OGD:consistOfSubject rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf OGD:consistOf ;
                      owl:inverseOf OGD:includedInAsSubjectOfRF ;
@@ -31,7 +31,7 @@ OGD:consistOfSubject rdf:type owl:ObjectProperty ;
                      rdfs:label "имеет внутренний субъект РФ" .
 
 
-###  http://www.w3id.org/opengovdata#hasCapital
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasCapital
 OGD:hasCapital rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
                owl:inverseOf OGD:isCapitalOf ;
@@ -39,7 +39,7 @@ OGD:hasCapital rdf:type owl:ObjectProperty ;
                rdfs:label "имеет административный центр" .
 
 
-###  http://www.w3id.org/opengovdata#includedIn
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#includedIn
 OGD:includedIn rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
                rdf:type owl:TransitiveProperty ;
@@ -47,21 +47,21 @@ OGD:includedIn rdf:type owl:ObjectProperty ;
                rdfs:label "входит в" .
 
 
-###  http://www.w3id.org/opengovdata#includedInAsSubjectOfRF
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#includedInAsSubjectOfRF
 OGD:includedInAsSubjectOfRF rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf OGD:includedIn ;
                             rdfs:comment "Вхождение автономного округа в территориальный состав другого при сохранении полной автономии от него." ;
                             rdfs:label "входит как самостоятельный субъект РФ в" .
 
 
-###  http://www.w3id.org/opengovdata#isCapitalOf
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#isCapitalOf
 OGD:isCapitalOf rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf OGD:topObjOKTMOProperty ;
                 rdfs:comment "Обратное свойство к \"имеет административный центр\"." ;
                 rdfs:label "является административным центром" .
 
 
-###  http://www.w3id.org/opengovdata#topObjOKTMOProperty
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#topObjOKTMOProperty
 OGD:topObjOKTMOProperty rdf:type owl:ObjectProperty ;
                         rdfs:label "имеет объектное отношение ОКТМО" .
 
@@ -70,7 +70,7 @@ OGD:topObjOKTMOProperty rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://www.w3id.org/opengovdata#hasAcceptanceDate
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasAcceptanceDate
 OGD:hasAcceptanceDate rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                       rdfs:domain OGD:OKTMO ;
@@ -78,7 +78,7 @@ OGD:hasAcceptanceDate rdf:type owl:DatatypeProperty ;
                       rdfs:label "дата принятия" .
 
 
-###  http://www.w3id.org/opengovdata#hasChangeNumber
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasChangeNumber
 OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                     rdfs:domain OGD:OKTMO ;
@@ -86,7 +86,7 @@ OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
                     rdfs:label "номер изменения" .
 
 
-###  http://www.w3id.org/opengovdata#hasChangeType
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasChangeType
 OGD:hasChangeType rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                   rdfs:domain OGD:OKTMO ;
@@ -94,7 +94,7 @@ OGD:hasChangeType rdf:type owl:DatatypeProperty ;
                   rdfs:label "тип изменения" .
 
 
-###  http://www.w3id.org/opengovdata#hasDescription
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasDescription
 OGD:hasDescription rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                    rdfs:domain OGD:OKTMO ;
@@ -102,7 +102,7 @@ OGD:hasDescription rdf:type owl:DatatypeProperty ;
                    rdfs:label "описание" .
 
 
-###  http://www.w3id.org/opengovdata#hasFullCode
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasFullCode
 OGD:hasFullCode rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                 rdfs:domain OGD:OKTMO ;
@@ -110,7 +110,7 @@ OGD:hasFullCode rdf:type owl:DatatypeProperty ;
                 rdfs:label "полный код" .
 
 
-###  http://www.w3id.org/opengovdata#hasInitiationDate
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasInitiationDate
 OGD:hasInitiationDate rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                       rdfs:domain OGD:OKTMO ;
@@ -118,14 +118,14 @@ OGD:hasInitiationDate rdf:type owl:DatatypeProperty ;
                       rdfs:label "дата введения" .
 
 
-###  http://www.w3id.org/opengovdata#hasNumber
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasNumber
 OGD:hasNumber rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain OGD:FederalOkrug ;
               rdfs:label "номер федерального округа" .
 
 
-###  http://www.w3id.org/opengovdata#hasValueCode
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasValueCode
 OGD:hasValueCode rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
                  rdfs:domain OGD:OKTMO ;
@@ -133,7 +133,7 @@ OGD:hasValueCode rdf:type owl:DatatypeProperty ;
                  rdfs:label "значимая часть кода" .
 
 
-###  http://www.w3id.org/opengovdata#isZATO
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#isZATO
 OGD:isZATO rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
            rdfs:domain OGD:OKTMO ;
@@ -148,7 +148,7 @@ OGD:isZATO rdf:type owl:DatatypeProperty ;
            rdfs:label "является ЗАТО" .
 
 
-###  http://www.w3id.org/opengovdata#topDataOKTMOProperty
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#topDataOKTMOProperty
 OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
                          rdfs:domain OGD:OKTMO ;
                          rdfs:label "имеет литеральное отношение ОКТМО" .
@@ -158,13 +158,13 @@ OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://www.w3id.org/opengovdata#AutonomousOblast
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#AutonomousOblast
 OGD:AutonomousOblast rdf:type owl:Class ;
                      rdfs:subClassOf OGD:Region ;
                      rdfs:label "Автономная область" .
 
 
-###  http://www.w3id.org/opengovdata#AutonomousOkrug
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#AutonomousOkrug
 OGD:AutonomousOkrug rdf:type owl:Class ;
                     rdfs:subClassOf OGD:Region ,
                                     [ rdf:type owl:Restriction ;
@@ -174,19 +174,19 @@ OGD:AutonomousOkrug rdf:type owl:Class ;
                     rdfs:label "Автономный округ" .
 
 
-###  http://www.w3id.org/opengovdata#FederalCity
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#FederalCity
 OGD:FederalCity rdf:type owl:Class ;
                 rdfs:subClassOf OGD:Region ;
                 rdfs:label "Город федерального значения" .
 
 
-###  http://www.w3id.org/opengovdata#FederalOkrug
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#FederalOkrug
 OGD:FederalOkrug rdf:type owl:Class ;
                  rdfs:comment "Единица административно-территориального деления, созданная в соответствии с Указом Президента России В. В. Путина № 849 «О полномочном представителе Президента Российской Федерации в федеральном округе» от 13 мая 2000 года." ;
                  rdfs:label "Федеральный округ" .
 
 
-###  http://www.w3id.org/opengovdata#InterSettlementTerritory
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#InterSettlementTerritory
 OGD:InterSettlementTerritory rdf:type owl:Class ;
                              rdfs:subClassOf OGD:OKTMO ,
                                              [ rdf:type owl:Restriction ;
@@ -208,7 +208,7 @@ OGD:InterSettlementTerritory rdf:type owl:Class ;
                              rdfs:label "Межселенная территория" .
 
 
-###  http://www.w3id.org/opengovdata#IntracityAreas
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#IntracityAreas
 OGD:IntracityAreas rdf:type owl:Class ;
                    rdfs:subClassOf OGD:RegionalMunicipality ;
                    rdfs:comment "Часть территории города федерального значения, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
@@ -216,7 +216,7 @@ OGD:IntracityAreas rdf:type owl:Class ;
                    rdfs:label "Внутригородская территория города федерального значения" .
 
 
-###  http://www.w3id.org/opengovdata#IntracityMunicipality
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#IntracityMunicipality
 OGD:IntracityMunicipality rdf:type owl:Class ;
                           rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
                           rdfs:comment "Внутригородское муниципальное образование на части территории городского округа с внутригородским делением, в границах которой местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления. Критерии для деления городских округов с внутригородским делением на внутригородские районы устанавливаются законами субъекта Российской Федерации и уставом городского округа с внутригородским делением." ;
@@ -224,13 +224,13 @@ OGD:IntracityMunicipality rdf:type owl:Class ;
                           rdfs:label "Внутригородской район" .
 
 
-###  http://www.w3id.org/opengovdata#Kray
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Kray
 OGD:Kray rdf:type owl:Class ;
          rdfs:subClassOf OGD:Region ;
          rdfs:label "Край" .
 
 
-###  http://www.w3id.org/opengovdata#Locality
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Locality
 OGD:Locality rdf:type owl:Class ;
              rdfs:subClassOf OGD:OKTMO ,
                              [ rdf:type owl:Restriction ;
@@ -256,12 +256,12 @@ OGD:Locality rdf:type owl:Class ;
              rdfs:label "Населённый пункт" .
 
 
-###  http://www.w3id.org/opengovdata#LocalityType
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#LocalityType
 OGD:LocalityType rdf:type owl:Class ;
                  rdfs:label "Тип населённого пункта" .
 
 
-###  http://www.w3id.org/opengovdata#MunicipalDistrict
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#MunicipalDistrict
 OGD:MunicipalDistrict rdf:type owl:Class ;
                       rdfs:subClassOf OGD:RegionalMunicipality ;
                       rdfs:comment "Несколько поселений или поселений и межселенных территорий, объединенных общей территорией, в границах которой местное самоуправление осуществляется в целях решения вопросов местного значения межпоселенческого характера населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." ;
@@ -269,7 +269,7 @@ OGD:MunicipalDistrict rdf:type owl:Class ;
                       rdfs:label "Муниципальный район" .
 
 
-###  http://www.w3id.org/opengovdata#MunicipalOkrug
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#MunicipalOkrug
 OGD:MunicipalOkrug rdf:type owl:Class ;
                    rdfs:subClassOf OGD:RegionalMunicipality ;
                    rdfs:comment "Несколько объединенных общей территорией населенных пунктов, не являющихся муниципальными образованиями, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления, которые могут осуществлять отдельные государственные полномочия, передаваемые органам местного самоуправления федеральными законами и законами субъектов Российской Федерации." ;
@@ -277,7 +277,7 @@ OGD:MunicipalOkrug rdf:type owl:Class ;
                    rdfs:label "Муниципальный округ" .
 
 
-###  http://www.w3id.org/opengovdata#Municipality
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Municipality
 OGD:Municipality rdf:type owl:Class ;
                  rdfs:subClassOf OGD:OKTMO ,
                                  [ rdf:type owl:Restriction ;
@@ -288,7 +288,7 @@ OGD:Municipality rdf:type owl:Class ;
                  rdfs:label "Муниципальное образование" .
 
 
-###  http://www.w3id.org/opengovdata#MunicipalityInsideMunicipality
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#MunicipalityInsideMunicipality
 OGD:MunicipalityInsideMunicipality rdf:type owl:Class ;
                                    rdfs:subClassOf OGD:Municipality ,
                                                    [ rdf:type owl:Restriction ;
@@ -309,7 +309,7 @@ OGD:MunicipalityInsideMunicipality rdf:type owl:Class ;
                                    rdfs:label "Внутреннее муниципальное образование" .
 
 
-###  http://www.w3id.org/opengovdata#OKTMO
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#OKTMO
 OGD:OKTMO rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty OGD:hasFullCode ;
@@ -319,13 +319,13 @@ OGD:OKTMO rdf:type owl:Class ;
           rdfs:comment "Отражает все индивиды, отражённые в базе ОКТМО, существующие в реальном мире (таким образом сюда не включены списки ОКТМО)." .
 
 
-###  http://www.w3id.org/opengovdata#Oblast
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Oblast
 OGD:Oblast rdf:type owl:Class ;
            rdfs:subClassOf OGD:Region ;
            rdfs:label "Область" .
 
 
-###  http://www.w3id.org/opengovdata#Okrug
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Okrug
 OGD:Okrug rdf:type owl:Class ;
           rdfs:subClassOf OGD:OKTMO ,
                           [ rdf:type owl:Restriction ;
@@ -344,7 +344,7 @@ OGD:Okrug rdf:type owl:Class ;
           rdfs:label "Округ" .
 
 
-###  http://www.w3id.org/opengovdata#Region
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Region
 OGD:Region rdf:type owl:Class ;
            rdfs:subClassOf OGD:OKTMO ,
                            [ rdf:type owl:Restriction ;
@@ -364,7 +364,7 @@ OGD:Region rdf:type owl:Class ;
                       "Субъект Российской Федерации" .
 
 
-###  http://www.w3id.org/opengovdata#RegionalMunicipality
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#RegionalMunicipality
 OGD:RegionalMunicipality rdf:type owl:Class ;
                          rdfs:subClassOf OGD:Municipality ,
                                          [ rdf:type owl:Restriction ;
@@ -388,13 +388,13 @@ OGD:RegionalMunicipality rdf:type owl:Class ;
                          rdfs:label "Региональное муниципальное образование" .
 
 
-###  http://www.w3id.org/opengovdata#Republic
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Republic
 OGD:Republic rdf:type owl:Class ;
              rdfs:subClassOf OGD:Region ;
              rdfs:label "Республика" .
 
 
-###  http://www.w3id.org/opengovdata#RuralSettlements
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#RuralSettlements
 OGD:RuralSettlements rdf:type owl:Class ;
                      rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
                      rdfs:comment "Один или несколько объединенных общей территорией сельских населенных пунктов (поселков, сел, станиц, деревень, хуторов, кишлаков, аулов и других сельских населенных пунктов), в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
@@ -402,7 +402,7 @@ OGD:RuralSettlements rdf:type owl:Class ;
                      rdfs:label "Сельское поселение" .
 
 
-###  http://www.w3id.org/opengovdata#UrbanDistrict
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#UrbanDistrict
 OGD:UrbanDistrict rdf:type owl:Class ;
                   rdfs:subClassOf OGD:RegionalMunicipality ;
                   owl:disjointWith OGD:UrbanSettlements ;
@@ -411,7 +411,7 @@ OGD:UrbanDistrict rdf:type owl:Class ;
                   rdfs:label "Городской округ" .
 
 
-###  http://www.w3id.org/opengovdata#UrbanSettlements
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#UrbanSettlements
 OGD:UrbanSettlements rdf:type owl:Class ;
                      rdfs:subClassOf OGD:MunicipalityInsideMunicipality ;
                      rdfs:comment "Город или поселок, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
