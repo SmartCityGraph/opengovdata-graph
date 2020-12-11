@@ -73,7 +73,7 @@ OGD:topObjOKTMOProperty rdf:type owl:ObjectProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasAcceptanceDate
 OGD:hasAcceptanceDate rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                      rdfs:domain OGD:OKTMO ;
+                      rdfs:domain OGD:ObjectOfOKTMO ;
                       rdfs:comment "Дата принятия кода ОКТМО." ;
                       rdfs:label "дата принятия" .
 
@@ -81,7 +81,7 @@ OGD:hasAcceptanceDate rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasChangeNumber
 OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                    rdfs:domain OGD:OKTMO ;
+                    rdfs:domain OGD:ObjectOfOKTMO ;
                     rdfs:comment "Номер последнего изменения, внесённого в базу ОКТМО, при котором был изменён данный код." ;
                     rdfs:label "номер изменения" .
 
@@ -89,7 +89,7 @@ OGD:hasChangeNumber rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasChangeType
 OGD:hasChangeType rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                  rdfs:domain OGD:OKTMO ;
+                  rdfs:domain OGD:ObjectOfOKTMO ;
                   rdfs:comment "Тип последнего изменения, внесённого в базу ОКТМО, при котором был изменён данный код." ;
                   rdfs:label "тип изменения" .
 
@@ -97,7 +97,7 @@ OGD:hasChangeType rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasDescription
 OGD:hasDescription rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                   rdfs:domain OGD:OKTMO ;
+                   rdfs:domain OGD:ObjectOfOKTMO ;
                    rdfs:comment "Дополнительная инфомрация из базы ОКТМО, относящаяся к данному коду." ;
                    rdfs:label "описание" .
 
@@ -105,7 +105,7 @@ OGD:hasDescription rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasFullCode
 OGD:hasFullCode rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                rdfs:domain OGD:OKTMO ;
+                rdfs:domain OGD:ObjectOfOKTMO ;
                 rdfs:comment "Полный код ОКТМО (8 знаков для регионов, округов и муниципальных образований и 11 для населённых пунктов)." ;
                 rdfs:label "полный код" .
 
@@ -113,7 +113,7 @@ OGD:hasFullCode rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasInitiationDate
 OGD:hasInitiationDate rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                      rdfs:domain OGD:OKTMO ;
+                      rdfs:domain OGD:ObjectOfOKTMO ;
                       rdfs:comment "Дата введения кода ОКТМО" ;
                       rdfs:label "дата введения" .
 
@@ -128,7 +128,7 @@ OGD:hasNumber rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#hasValueCode
 OGD:hasValueCode rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-                 rdfs:domain OGD:OKTMO ;
+                 rdfs:domain OGD:ObjectOfOKTMO ;
                  rdfs:comment "Часть кода (первая, вторая или третья для регионов, округов и муниципальных образований, и четвёртая для населённых пунктов), уникальная для объектов непосредственно входящих в один родительский объект." ;
                  rdfs:label "значимая часть кода" .
 
@@ -136,7 +136,7 @@ OGD:hasValueCode rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#isZATO
 OGD:isZATO rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf OGD:topDataOKTMOProperty ;
-           rdfs:domain OGD:OKTMO ;
+           rdfs:domain OGD:ObjectOfOKTMO ;
            rdfs:range xsd:boolean ;
            rdfs:comment """Закрытое административно-территориальное образование (ЗАТО) — административно-территориальное образование, в границах которого расположены промышленные предприятия по разработке, изготовлению, хранению и утилизации оружия массового поражения, переработке радиоактивных и других материалов, военные и иные объекты, для которых установлен особый режим безопасного функционирования и охраны государственной тайны, включающий специальные условия проживания граждан.
 
@@ -150,7 +150,7 @@ OGD:isZATO rdf:type owl:DatatypeProperty ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#topDataOKTMOProperty
 OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
-                         rdfs:domain OGD:OKTMO ;
+                         rdfs:domain OGD:ObjectOfOKTMO ;
                          rdfs:label "имеет литеральное отношение ОКТМО" .
 
 
@@ -188,7 +188,7 @@ OGD:FederalOkrug rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#InterSettlementTerritory
 OGD:InterSettlementTerritory rdf:type owl:Class ;
-                             rdfs:subClassOf OGD:OKTMO ,
+                             rdfs:subClassOf OGD:ObjectOfOKTMO ,
                                              [ rdf:type owl:Restriction ;
                                                owl:onProperty OGD:includedIn ;
                                                owl:someValuesFrom OGD:MunicipalDistrict
@@ -232,7 +232,7 @@ OGD:Kray rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Locality
 OGD:Locality rdf:type owl:Class ;
-             rdfs:subClassOf OGD:OKTMO ,
+             rdfs:subClassOf OGD:ObjectOfOKTMO ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty OGD:includedIn ;
                                owl:someValuesFrom [ rdf:type owl:Class ;
@@ -279,7 +279,7 @@ OGD:MunicipalOkrug rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Municipality
 OGD:Municipality rdf:type owl:Class ;
-                 rdfs:subClassOf OGD:OKTMO ,
+                 rdfs:subClassOf OGD:ObjectOfOKTMO ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty OGD:hasCapital ;
                                    owl:allValuesFrom OGD:Locality
@@ -309,14 +309,15 @@ OGD:MunicipalityInsideMunicipality rdf:type owl:Class ;
                                    rdfs:label "Внутреннее муниципальное образование" .
 
 
-###  http://citygraph.onti.actcognitive.org/ogd/oktmo#OKTMO
-OGD:OKTMO rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty OGD:hasFullCode ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ;
-          rdfs:comment "Отражает все индивиды, отражённые в базе ОКТМО, существующие в реальном мире (таким образом сюда не включены списки ОКТМО)." .
+###  http://citygraph.onti.actcognitive.org/ogd/oktmo#ObjectOfOKTMO
+OGD:ObjectOfOKTMO rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty OGD:hasFullCode ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ;
+                  rdfs:comment "Отражает все индивиды, отражённые в базе ОКТМО, существующие в реальном мире (таким образом сюда не включены списки ОКТМО)." ;
+                  rdfs:label "Объект ОКТМО" .
 
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Oblast
@@ -327,7 +328,7 @@ OGD:Oblast rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Okrug
 OGD:Okrug rdf:type owl:Class ;
-          rdfs:subClassOf OGD:OKTMO ,
+          rdfs:subClassOf OGD:ObjectOfOKTMO ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty OGD:includedIn ;
                             owl:someValuesFrom OGD:Region
@@ -346,7 +347,7 @@ OGD:Okrug rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Region
 OGD:Region rdf:type owl:Class ;
-           rdfs:subClassOf OGD:OKTMO ,
+           rdfs:subClassOf OGD:ObjectOfOKTMO ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty OGD:includedIn ;
                              owl:someValuesFrom OGD:FederalOkrug
@@ -417,3 +418,6 @@ OGD:UrbanSettlements rdf:type owl:Class ;
                      rdfs:comment "Город или поселок, в которых местное самоуправление осуществляется населением непосредственно и (или) через выборные и иные органы местного самоуправления." ;
                      rdfs:isDefinedBy "http://www.consultant.ru/document/cons_doc_LAW_149911/fe0fcde01af39800bd620af2a8e83bd5634875f4/" ;
                      rdfs:label "Городское поселение" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
