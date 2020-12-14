@@ -8,7 +8,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <http://citygraph.onti.actcognitive.org/ogd/oktmo> .
 
-<http://citygraph.onti.actcognitive.org/ogd/oktmo> rdf:type owl:Ontology .
+<http://citygraph.onti.actcognitive.org/ogd/oktmo> rdf:type owl:Ontology ;
+                                                    rdfs:comment """ОКТМО — это общероссийский классификатор территорий муниципальных образований, часть национальной системы стандартизации Российской Федерации.
+
+ОКТМО предназначен для обеспечения систематизации и однозначной идентификации на всей территории Российской Федерации муниципальных образований и населенных пунктов, входящих в их состав, с отражением структуры и уровней территориальной организации местного самоуправления для решения задач сбора, автоматизированной обработки, представления и анализа информации в разрезе муниципальных образований в различных областях экономики, включая статистику, прогнозирование, налогообложение.
+
+Онтология отражает структуру этого документа, а также дополняет это некоторыми уточнениями и распространениями для того, чтобы ориентировать пользователя по административно-территориальному устройству России. Возможные пользователи онтологии, это люди, которые используют ОКТМО в работе, при заполнении документов и просто интересующиеся структурой города/страны.""" .
 
 #################################################################
 #    Object Properties
@@ -63,6 +68,7 @@ OGD:isCapitalOf rdf:type owl:ObjectProperty ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#topObjOKTMOProperty
 OGD:topObjOKTMOProperty rdf:type owl:ObjectProperty ;
+                        rdfs:comment "Верхнеуровневое отношение, отражающее принадлежность его подклассов к онтологии ОКТМО." ;
                         rdfs:label "имеет объектное отношение ОКТМО" .
 
 
@@ -122,6 +128,7 @@ OGD:hasInitiationDate rdf:type owl:DatatypeProperty ;
 OGD:hasNumber rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain OGD:FederalOkrug ;
+              rdfs:comment "Номер федерального округа, взятый из перечня федеральных округов." ;
               rdfs:label "номер федерального округа" .
 
 
@@ -151,6 +158,7 @@ OGD:isZATO rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#topDataOKTMOProperty
 OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
                          rdfs:domain OGD:ObjectOfOKTMO ;
+                         rdfs:comment "Верхнеуровневое отношение, отражающее принадлежность его подклассов к онтологии ОКТМО." ;
                          rdfs:label "имеет литеральное отношение ОКТМО" .
 
 
@@ -161,6 +169,7 @@ OGD:topDataOKTMOProperty rdf:type owl:DatatypeProperty ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#AutonomousOblast
 OGD:AutonomousOblast rdf:type owl:Class ;
                      rdfs:subClassOf OGD:Region ;
+                     rdfs:comment "Одна из разновидностей равноправных субъектов Российской Федерации." ;
                      rdfs:label "Автономная область" .
 
 
@@ -171,12 +180,14 @@ OGD:AutonomousOkrug rdf:type owl:Class ;
                                       owl:onProperty OGD:includedInAsSubjectOfRF ;
                                       owl:allValuesFrom OGD:Region
                                     ] ;
+                    rdfs:comment "Одна из разновидностей равноправных субъектов Российской Федерации." ;
                     rdfs:label "Автономный округ" .
 
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#FederalCity
 OGD:FederalCity rdf:type owl:Class ;
                 rdfs:subClassOf OGD:Region ;
+                rdfs:comment "Город, являющийся субъектом Российской Федерации." ;
                 rdfs:label "Город федерального значения" .
 
 
@@ -227,6 +238,7 @@ OGD:IntracityMunicipality rdf:type owl:Class ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Kray
 OGD:Kray rdf:type owl:Class ;
          rdfs:subClassOf OGD:Region ;
+         rdfs:comment "Территориальный субъект в Российской Федерации, а также в прошлом в Российской империи и Советском Союзе." ;
          rdfs:label "Край" .
 
 
@@ -258,6 +270,7 @@ OGD:Locality rdf:type owl:Class ;
 
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#LocalityType
 OGD:LocalityType rdf:type owl:Class ;
+                 rdfs:comment "Типы населённых пунктов (городские и сельские), взятые из классификатора ОКТМО." ;
                  rdfs:label "Тип населённого пункта" .
 
 
@@ -323,6 +336,7 @@ OGD:ObjectOfOKTMO rdf:type owl:Class ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Oblast
 OGD:Oblast rdf:type owl:Class ;
            rdfs:subClassOf OGD:Region ;
+           rdfs:comment "Одна из разновидностей равноправных субъектов Российской Федерации.Области являются самыми многочисленными субъектами РФ по численности." ;
            rdfs:label "Область" .
 
 
@@ -360,7 +374,7 @@ OGD:Region rdf:type owl:Class ;
                                                              )
                                                ]
                            ] ;
-           rdfs:comment "Общее название субъекта РФ." ;
+           rdfs:comment "Название территориальных единиц верхнего уровня — регионов в Российской Федерации." ;
            rdfs:label "Регион" ,
                       "Субъект Российской Федерации" .
 
@@ -392,6 +406,7 @@ OGD:RegionalMunicipality rdf:type owl:Class ;
 ###  http://citygraph.onti.actcognitive.org/ogd/oktmo#Republic
 OGD:Republic rdf:type owl:Class ;
              rdfs:subClassOf OGD:Region ;
+             rdfs:comment "Одна из разновидностей равноправных субъектов Российской Федерации. В отличие от прочих субъектов Российской Федерации республики охарактеризованы в Конституции Российской Федерации как государства, однако это их обозначение не означает наличие у них государственного суверенитета, а «лишь отражает определённые особенности их конституционно-правового статуса, связанные с факторами исторического, национального и иного характера»." ;
              rdfs:label "Республика" .
 
 
